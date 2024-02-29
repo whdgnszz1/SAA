@@ -1,0 +1,35 @@
+회사는 여러 AWS 계정의 AWS CloudTrail 로그를 중앙 집중식 계정의 Amazon S3 버킷으로 보냅니다. 회사는 CloudTrail 로그를 보관해야 합니다. 
+회사는 언제든지 CloudTrail 로그를 쿼리할 수 있어야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?
+
+A. 중앙 집중식 계정의 CloudTrail 이벤트 기록을 사용하여 Amazon Athena 테이블을 생성합니다. Athena에서 CloudTrail 로그를 쿼리합니다.
+B. CloudTrail 로그를 관리하도록 Amazon Neptune 인스턴스를 구성합니다. Neptune에서 CloudTrail 로그를 쿼리합니다.
+C. 로그를 Amazon DynamoDB 테이블로 보내도록 CloudTrail을 구성합니다. Amazon QuickSight에서 대시보드를 생성하여 테이블의 로그를 쿼리합니다.
+D. Amazon Athena를 사용하여 Athena 노트북을 생성합니다. 로그를 노트북으로 보내도록 CloudTrail을 구성합니다. Athena에서 쿼리를 실행합니다.
+
+이 문제는 AWS CloudTrail 로그를 여러 AWS 계정에서 중앙 집중식 계정의 Amazon S3 버킷으로 수집하고, 
+이 로그를 보관하며 언제든지 쿼리할 수 있는 솔루션을 찾는 시나리오를 다룹니다. 
+올바른 해결책은 A, 즉 Amazon Athena를 사용하여 CloudTrail 이벤트 기록에서 Athena 테이블을 생성하고, 
+Athena를 통해 CloudTrail 로그를 쿼리하는 것입니다.
+
+주요 용어 정리:
+AWS CloudTrail: AWS CloudTrail은 AWS 계정의 API 호출 및 관련 이벤트를 기록하는 서비스입니다. 
+이 로그는 보안 분석, 리소스 변경 추적, 문제 해결 등에 사용될 수 있습니다.
+
+Amazon S3: Amazon Simple Storage Service(S3)는 객체 스토리지 서비스로, 인터넷을 통해 어디서나 데이터를 저장하고 검색할 수 있습니다. 
+이 경우, CloudTrail 로그를 저장하는 데 사용됩니다.
+
+Amazon Athena: Athena는 S3에 저장된 데이터를 표준 SQL을 사용하여 서버리스 방식으로 쿼리할 수 있는 인터랙티브 쿼리 서비스입니다. 
+Athena를 사용하면 복잡한 ETL(추출, 변환, 로드) 작업 없이도 데이터를 쉽게 분석할 수 있습니다.
+
+Amazon Neptune: Amazon Neptune은 완전관리형 그래프 데이터베이스 서비스로, 복잡한 관계성 데이터를 효율적으로 저장하고 쿼리할 수 있습니다. 
+하지만 이 시나리오에서는 CloudTrail 로그의 분석에 적합한 솔루션으로 언급되지 않습니다.
+
+Amazon DynamoDB: DynamoDB는 완전관리형 NoSQL 데이터베이스 서비스로, 빠른 성능과 자동 확장성을 제공합니다. 
+로그 데이터 분석보다는 애플리케이션 데이터 저장에 주로 사용됩니다.
+
+Amazon QuickSight: QuickSight는 AWS의 완전관리형 비즈니스 인텔리전스 서비스로, 데이터를 시각화하고 인사이트를 얻기 위한 대시보드를 생성할 수 있습니다.
+
+해결책 설명:
+이 시나리오에서 A는 CloudTrail 로그를 보관하고 필요할 때마다 쿼리하는 가장 효과적인 방법입니다. 
+CloudTrail 이벤트 기록을 사용하여 Athena 테이블을 생성하면, 이 테이블을 통해 SQL 쿼리를 실행하여 로그 데이터를 분석할 수 있습니다. 
+이 접근 방식은 서버리스이며, 로그 데이터에 대한 복잡한 쿼리를 빠르고 유연하게 수행할 수 있게 해줍니다.
