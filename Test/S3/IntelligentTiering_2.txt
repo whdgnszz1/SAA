@@ -1,0 +1,32 @@
+
+NO.51 A company is running a photo hosting service in the us-east-1 Region. 
+The service enables users across multiple countries to upload and view photos. 
+Some photos are heavily viewed for months, and others are viewed for less than a week. 
+The application allows uploads of up to 20 MB for each photo. 
+The service uses the photo metadata to determine which photos to display to each user.
+Which solution provides the appropriate user access MOST cost-effectively?
+
+A. Store the photos in Amazon DynamoDB. Turn on DynamoDB Accelerator (DAX) to cache frequently viewed items.
+B. Store the photos in the Amazon S3 Intelligent-Tiering storage class. 
+Store the photo metadata and its S3 location in DynamoDB.
+C. Store the photos in the Amazon S3 Standard storage class. 
+Set up an S3 Lifecycle policy to move photos older than 30 days 
+to the S3 Standard-Infrequent Access (S3 Standard-IA) storage class. 
+Use the object tags to keep track of metadata.
+D. Store the photos in the Amazon S3 Glacier storage class. 
+Set up an S3 Lifecycle policy to move photos older than 30 days 
+to the S3 Glacier Deep Archive storage class. Store the photo metadata and its S3 location in Amazon OpenSearch Service.
+
+Answer: B
+Explanation:
+ This solution provides the appropriate user access most cost-effectively because it uses the Amazon S3 Intelligent-Tiering storage class, 
+which automatically optimizes storage costs by moving data 
+to the most cost-effective access tier when access patterns change,
+without performance impact or operational overhead.
+This storage class is ideal for data with unknown, changing, or unpredictable access patterns, 
+such as photos that are heavily viewed for months or less than a week. 
+By storing the photo metadata and its S3 location in DynamoDB, the application can quickly query 
+and retrieve the relevant photos for each user. 
+DynamoDB is a fast, scalable, and fully managed NoSQL database service 
+that supports key- value and document data models2.
+References: 1: Amazon S3 Intelligent-Tiering Storage Class | AWS3, Overview section2: Amazon DynamoDB - NoSQL Cloud Database Service4, Overview section.

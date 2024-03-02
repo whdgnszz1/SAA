@@ -1,0 +1,32 @@
+NO.57 At part of budget planning. management wants a report of AWS billed dams listed by user. 
+The data will be used to create department budgets. 
+A solution architect needs to determine the most efficient way
+to obtain this report Information Which solution meets these requirement?
+
+A. Run a query with Amazon Athena to generate the report.
+B. Create a report in Cost Explorer and download the report
+C. Access the bill details from the running dashboard and download Via bill.
+D. Modify a cost budget in AWS Budgets to alert with Amazon Simple Email Service (Amazon SES). 
+
+Answer: B
+
+주요 키워드 설명:
+Cost Explorer: AWS 비용 및 사용량을 시각화하고, 이해하며, 시간에 따라 관리할 수 있게 해주는 도구입니다. 
+사용자 이름 태그를 필터로 사용하여 AWS 청구 항목을 사용자별로 나열하는 보고서를 생성할 수 있습니다.
+
+솔루션의 이점:
+Cost Explorer를 사용하면, 사용자별로 청구 항목을 나열하는 보고서를 손쉽게 생성할 수 있으며, 
+CSV 파일로 다운로드하여 예산 계획에 사용할 수 있습니다. 이 방법은 추가 비용이나 복잡성 없이 필요한 정보를 효율적으로 제공합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A 옵션: Amazon Athena를 사용하는 것은 Amazon S3의 데이터를 표준 SQL을 사용하여 분석할 수 있는 서버리스 대화형 쿼리 서비스입니다. 
+AWS 비용 및 사용 보고서 데이터를 가리키는 Athena 테이블을 설정하고 쿼리를 실행하여 보고서를 생성해야 하며, 이는 추가 비용과 복잡성을 발생시킵니다.
+
+C 옵션: 청구 대시보드를 사용하는 것은 AWS 비용 및 사용량에 대한 고수준 요약을 제공합니다. 
+청구 대시보드에서 청구 세부 정보에 액세스하고 다운로드할 수 있지만, 사용자별로 청구 항목을 나열하지는 않습니다.
+
+D 옵션: AWS 예산을 사용하는 것은 서비스 사용량, 서비스 비용 및 인스턴스 예약을 계획할 수 있게 해주는 도구입니다. 
+AWS 예산에서 비용 예산을 수정하여 Amazon Simple Email Service(Amazon SES)로 알림을 보낼 수 있지만, 
+이는 사용자별 AWS 청구 항목의 보고서를 생성하지 않습니다.
+
+결론적으로, B 옵션은 사용자별로 AWS 청구 항목의 보고서를 효율적으로 생성하고 관리부의 요구 사항을 충족시키는 가장 적합한 솔루션을 제공합니다.

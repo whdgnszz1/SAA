@@ -1,0 +1,33 @@
+NO.50 A gaming company wants to launch a new internet-facing application in multiple AWS Regions 
+The application will use the TCP and UDP protocols for communication. 
+The company needs to provide high availability and minimum latency for global users.
+Which combination of actions should a solutions architect take to meet these requirements? (Select TWO.)
+
+A. Create internal Network Load Balancers in front of the application in each Region.
+B. Create external Application Load Balancers in front of the application in each Region.
+C. Create an AWS Global Accelerator accelerator to route traffic to the load balancers in each Region. 
+D. Configure Amazon Route 53 to use a geolocation routing policy to distribute the traffic.
+E. Configure Amazon CloudFront to handle the traffic and route requests to the application in each Region.
+
+정답: B, C
+B. 각 리전에서 애플리케이션 앞에 외부 애플리케이션 로드 밸런서를 생성합니다.
+C. 각 리전의 로드 밸런서로 트래픽을 라우팅하기 위해 AWS Global Accelerator 액셀러레이터를 생성합니다.
+
+주요 키워드 설명:
+AWS Global Accelerator: AWS Global Accelerator는 AWS 글로벌 네트워크를 사용하여 인터넷 대면 애플리케이션의 가용성, 성능, 보안을 개선하는 네트워킹 서비스입니다. 
+전 세계 사용자에게 최적의 리전 엔드포인트로 트래픽을 라우팅하며, TCP 및 UDP 지원, 트래픽 암호화, DDoS 보호를 제공합니다.
+
+애플리케이션 로드 밸런서: 애플리케이션 로드 밸런서는 들어오는 애플리케이션 트래픽을 여러 타겟(예: EC2 인스턴스)에 걸쳐 분산시키는 외부 로드 밸런서입니다. 
+HTTP 및 HTTPS(SLL/TLS) 프로토콜을 지원하며, 콘텐츠 기반 라우팅, 상태 검사, 다른 AWS 서비스와의 통합과 같은 고급 기능을 제공합니다.
+
+솔루션의 이점:
+외부 애플리케이션 로드 밸런서 생성을 통해, 애플리케이션은 다양한 부하 패턴을 처리하고 수요에 따라 확장할 수 있습니다.
+
+AWS Global Accelerator 액셀러레이터 생성을 통해, 전 세계 사용자에게 최적의 경로를 통해 트래픽을 라우팅함으로써 최상의 사용자 경험을 제공할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A 옵션: 내부 네트워크 로드 밸런서는 인터넷 대면 애플리케이션에 적합하지 않으며, 전 세계 사용자에게 최소 대기 시간을 제공하는 데 필요한 기능을 제공하지 않습니다.
+
+D 옵션: 프로비저닝된 용량 모드에서 글로벌 테이블로 DynamoDB 테이블을 생성하는 것은 이 시나리오에서 언급되지 않았습니다.
+
+결론적으로, B와 C 옵션은 전 세계 사용자에게 높은 가용성과 최소 대기 시간을 제공하면서 운영상의 부담을 최소화하는 솔루션을 제공합니다.

@@ -1,0 +1,44 @@
+NO.55 A company wants to migrate its three-tier application from on premises to AWS. 
+The web tier and the application tier are running on third-party virtual machines (VMs). 
+The database tier is running on MySQL.
+The company needs to migrate the application by making the fewest possible changes to the architecture. 
+The company also needs a database solution that can restore data to a specific point in time.
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Migrate the web tier and the application tier to Amazon EC2 instances in private subnets. 
+Migrate the database tier to Amazon RDS for MySQL in private subnets.
+B. Migrate the web tier to Amazon EC2 instances in public subnets. 
+Migrate the application tier to EC2 instances in private subnets. 
+Migrate the database tier to Amazon Aurora MySQL in private subnets.
+C. Migrate the web tier to Amazon EC2 instances in public subnets. 
+Migrate the application tier to EC2 instances in private subnets. 
+Migrate the database tier to Amazon RDS for MySQL in private subnets.
+D. Migrate the web tier and the application tier to Amazon EC2 instances in public subnets. 
+Migrate the database tier to Amazon Aurora MySQL in public subnets.
+
+Answer: C
+Explanation:
+The solution that meets the requirements with the least operational overhead is 
+to migrate the web tier to Amazon EC2 instances in public subnets,
+migrate the application tier to EC2 instances in private subnets, 
+and migrate the database tier to Amazon RDS for MySQL in private subnets. 
+This solution allows the company to migrate its three-tier application to AWS 
+by making minimal changes to the architecture, 
+as it preserves the same web, application, and database tiers and uses the same MySQL database engine. 
+The solution also provides a database solution that can restore data to a specific point in time, 
+as Amazon RDS for MySQL supports automated backups and point-in-time recovery. 
+This solution also reduces the operational overhead by using managed services such as Amazon EC2 and Amazon RDS, 
+which handle tasks such as provisioning, patching, scaling, and monitoring.
+The other solutions do not meet the requirements as well as the first one because they either involve more changes to the architecture, 
+do not provide point-in-time recovery, or do not follow best practices for security and availability. 
+Migrating the database tier to Amazon Aurora MySQL 
+would require changing the database engine and potentially 
+modifying the application code to ensure compatibility. 
+Migrating the web tier and the application tier to public subnets 
+would expose them to more security risks and reduce their availability in case of a subnet failure. 
+Migrating the database tier to public subnets would also compromise its security and performance. 
+
+References:
+* Migrate Your Application Database to Amazon RDS * Amazon RDS for MySQL
+* Amazon Aurora MySQL
+* Amazon VPC

@@ -1,0 +1,59 @@
+NO.58 A company has a three-tier environment on AWS 
+that ingests sensor data from its users' devices The traffic flows through a Network Load Balancer (NLB) 
+then to Amazon EC2 instances for the web tier and finally to EC2 instances 
+for the application tier that makes database calls 
+What should a solutions architect do to improve the security of data in transit to the web tier?
+
+A. Configure a TLS listener and add the server certificate on the NLB 
+B. Configure AWS Shield Advanced and enable AWS WAF on the NLB
+C. Change the load balancer to an Application Load Balancer and attach AWS WAF to it
+D. Encrypt the Amazon Elastic Block Store (Amazon EBS) volume on the EC2 instances using AWS Key Management Service (AWS KMS)
+
+Answer: A
+A: How do you protect your data in transit?
+Best Practices:
+Implement secure key and certificate management: Store encryption keys and certificates securely and rotate them 
+at appropriate time intervals while applying strict access control; 
+for example, by using a certificate management service, such as AWS Certificate Manager (ACM).
+
+Enforce encryption in transit: 
+Enforce your defined encryption requirements 
+based on appropriate standards and recommendations 
+to help you meet your organizational, legal, and compliance requirements.
+
+Automate detection of unintended data access: 
+Use tools such as GuardDuty to automatically detect 
+attempts to move data outside of defined boundaries 
+based on data classification level, 
+for example, to detect a trojan that is copying data 
+to an unknown or untrusted network using the DNS protocol. 
+
+Authenticate network communications: 
+Verify the identity of communications by using protocols 
+that support authentication, such as Transport Layer Security (TLS) or IPsec. 
+https://wa.aws.amazon.com/wat.question.SEC_9.en.html
+
+주요 키워드 설명:
+TLS 리스너: Transport Layer Security(TLS) 리스너는 네트워크 통신에서 데이터의 암호화 및 보안을 담당합니다. 
+TLS를 통해 데이터 이동 중에 정보가 암호화되어 보호됩니다.
+
+AWS Certificate Manager (ACM): AWS Certificate Manager는 TLS/SSL 인증서를 쉽게 프로비저닝, 관리 및 배포할 수 있는 서비스입니다. 
+인증서 관리를 자동화하여 보안을 강화할 수 있습니다.
+
+솔루션의 이점:
+A 옵션을 통해, 웹 계층으로의 데이터 이동 중에 TLS를 사용하여 트래픽을 암호화함으로써 보안을 개선할 수 있습니다. 
+이는 데이터를 안전하게 전송할 수 있게 하여 정보 유출 위험을 줄입니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+B 옵션: AWS Shield Advanced와 NLB에 AWS WAF를 활성화하는 것은 DDoS 공격으로부터 보호하고 웹 애플리케이션의 보안을 강화하지만, 
+데이터 이동 중 보안을 직접적으로 개선하지는 않습니다.
+
+C 옵션: 로드 밸런서를 애플리케이션 로드 밸런서(ALB)로 변경하고 AWS WAF를 연결하는 것은 웹 애플리케이션 보안을 강화하지만, 
+데이터 이동 중의 암호화와는 관련이 없습니다.
+
+D 옵션: EC2 인스턴스의 Amazon Elastic Block Store (Amazon EBS) 볼륨을 
+AWS Key Management Service (AWS KMS)를 사용하여 암호화하는 것은 데이터를 저장할 때 보안을 강화하지만, 
+데이터 이동 중 보안과는 관련이 없습니다.
+
+결론적으로, A 옵션은 웹 계층으로의 데이터 이동 중 보안을 개선하는 가장 효과적인 방법을 제공합니다. 
+TLS 리스너와 서버 인증서를 NLB에 구성함으로써 데이터의 안전한 전송을 보장할 수 있습니다.
