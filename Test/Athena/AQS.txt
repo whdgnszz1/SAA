@@ -1,0 +1,17 @@
+한 회사가 이 웹 사이트에서 Amazon CloudFront를 사용하고 있습니다. 회사는 CloudFront 배포에서 로깅을 활성화했으며 로그는 회사의 Amazon S3 버킷 중 하나에 저장됩니다. 
+회사는 로그에 대한 고급 분석을 수행하고 시각화를 구축해야 합니다. 이러한 요구 사항을 충족하려면 솔루션 아키텍트가 무엇을 해야 합니까?
+
+A. Amazon Athena에서 표준 SQL 쿼리를 사용하여 S3 버킷의 CloudFront 토그를 분석합니다. AWS Glue로 결과 시각화
+B. Amazon Athena에서 표준 SQL 쿼리를 사용하여 S3 버킷의 CloudFront 토그를 분석합니다. Amazon QuickSight로 결과 시각화
+C. Amazon DynamoDB에서 표준 SQL 쿼리를 사용하여 S3 버킷의 CloudFront 로그를 분석합니다. AWS Glue로 결과 시각화
+D. Amazon DynamoDB에서 표준 SQL 쿼리를 사용하여 S3 버킷의 CtoudFront 로그를 분석합니다. Amazon QuickSight로 결과 시각화
+
+정답: B
+
+Explanation:
+https://docs.aws.amazon.com/quicksight/latest/user/welcome.html
+
+Using Athena to query the CloudFront logs in the S3 bucket and 
+QuickSight to visualize the results is the best solution because it is cost-effective, scalable, and requires no infrastructure setup. 
+It also provides a robust solution that enables the company to perform advanced analysis and build interactive visualizations 
+without the need for a dedicated team of developers.

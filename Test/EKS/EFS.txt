@@ -1,0 +1,34 @@
+한 회사가 AWS Fargate 클러스터를 사용하여 Amazon Elastic Kubernetes Service(Amazon EKS)에 새 애플리케이션을 배포하고 있습니다. 
+애플리케이션에는 데이터 지속성을 위한 스토리지 솔루션이 필요합니다. 솔루션은 가용성이 높고 내결함성이 있어야 합니다. 
+또한 솔루션은 여러 애플리케이션 컨테이너 간에 공유되어야 합니다.
+최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?
+
+A. EKS 작업자 노드가 배치된 동일한 가용 영역에 Amazon Elastic Block Store(Amazon EBS) 볼륨을 생성합니다. 
+EKS 클러스터의 StorageClass 객체에 볼륨을 등록합니다. EBS 다중 연결을 사용하여 컨테이너 간에 데이터를 공유합니다.
+B. Amazon Elastic File System(Amazon EFS) 파일 시스템을 생성합니다. EKS 클러스터의 StorageClass 객체에 파일 시스템을 등록합니다. 모든 컨테이너에 동일한 파일 시스템을 사용합니다.
+C. Amazon Elastic Block Store(Amazon EBS) 볼륨을 생성합니다. EKS 클러스터의 StorageClass 객체에 볼륨을 등록합니다. 모든 용기에 동일한 용량을 사용하십시오.
+D. EKS 작업자 노드가 배치된 동일한 가용 영역에 Amazon Elastic File System(Amazon EFS) 파일 시스템을 생성합니다. EKS 클러스터의 StorageClass 객체에 파일 시스템을 등록합니다. 
+파일 시스템 간에 데이터를 동기화하는 AWS Lambda 함수를 생성합니다.
+
+정답: B. Amazon Elastic File System(Amazon EFS) 파일 시스템을 생성합니다. EKS 클러스터의 StorageClass 객체에 파일 시스템을 등록합니다. 모든 컨테이너에 동일한 파일 시스템을 사용합니다.
+
+주요 키워드 설명:
+Amazon Elastic File System (Amazon EFS): 완전 관리형, 탄력적이며 확장 가능한 파일 시스템으로, 여러 EC2 인스턴스 또는 컨테이너에서 동시에 사용할 수 있습니다. 
+EFS는 여러 가용 영역에 걸쳐 데이터를 복제하여 높은 가용성과 내결함성을 제공합니다.
+
+StorageClass 객체: Kubernetes에서 사용하는 스토리지 클래스는 동적 볼륨 프로비저닝을 위한 방법을 정의합니다. 
+이를 통해 사용자는 볼륨을 수동으로 생성하고 관리하는 대신, 필요에 따라 자동으로 볼륨을 프로비저닝할 수 있습니다.
+
+솔루션의 이점:
+높은 가용성과 내결함성: Amazon EFS는 여러 가용 영역에 걸쳐 데이터를 자동으로 복제하여, 가용 영역의 손실이 발생해도 데이터에 접근할 수 있도록 합니다.
+
+데이터 공유: Amazon EFS 파일 시스템은 여러 컨테이너에서 동시에 마운트하고 사용할 수 있어, 애플리케이션 컨테이너 간에 데이터를 쉽게 공유할 수 있습니다.
+
+최소한의 운영 오버헤드: Amazon EFS는 완전 관리형 서비스로, 스토리지 관리에 대한 복잡성과 운영 오버헤드를 줄여줍니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A, C, D 옵션: Amazon EBS 볼륨은 AWS Fargate에서 지원되지 않으며, 여러 컨테이너 간에 데이터를 공유하는 데 제한이 있습니다. 
+EBS Multi-Attach는 사용 가능한 옵션이지만, Fargate와 호환되지 않고 특정 요구 사항에 맞춰 구성해야 합니다. 
+또한, EFS 파일 시스템 간 데이터를 동기화하는 데 AWS Lambda를 사용하는 것은 불필요하고 복잡합니다.
+
+B 옵션은 AWS Fargate와 Amazon EKS를 사용하는 애플리케이션에 대해 데이터 지속성, 높은 가용성, 내결함성 및 데이터 공유를 제공하는 최적의 솔루션을 제공합니다.

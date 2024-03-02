@@ -1,0 +1,21 @@
+한 전자 상거래 회사가 AWS에서 하루에 한 번 거래하는 웹 사이트를 시작하려고 합니다. 
+매일 24시간 동안 정확히 하나의 제품이 판매됩니다. 회사는 피크 시간 동안 밀리초의 대기 시간으로 매시간 수백만 건의 요청을 처리할 수 있기를 원합니다.
+최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?
+
+A. Amazon S3를 사용하여 다양한 S3 버킷에서 전체 웹 사이트 호스팅 Amazon CloudFront 배포 추가 S3 버킷을 배포 원본으로 설정 주문 데이터를 Amazon S3에 저장
+B. 여러 가용 영역에 걸쳐 Auto Scaling 그룹에서 실행되는 Amazon EC2 인스턴스에 전체 웹 사이트 배포 ALB(Application Load Balancer)를 추가하여 
+웹 사이트 트래픽 분산 백엔드 API용으로 또 다른 ALB 추가 MySQL용 Amazon RDS에 데이터 저장
+C. 컨테이너에서 실행할 전체 애플리케이션 마이그레이션 Amazon Elastic Kubernetes Service(Amazon EKS)에서 컨테이너 호스팅 Kubernetes Cluster Autoscaler를 사용하여 
+포드 수를 늘리거나 줄여 트래픽 급증을 처리합니다. MySQL용 Amazon RDS에 데이터를 저장합니다.
+D. Amazon S3 버킷을 사용하여 웹 사이트의 정적 콘텐츠를 호스팅합니다. Amazon CloudFront 배포를 배포합니다. 
+S3 버킷을 오리진으로 설정 백엔드 API에 Amazon API Gateway 및 AWS Lambda 함수 사용 Amazon DynamoDB에 데이터 저장
+
+정답: D
+
+Explanation:
+To launch a one-deal-a-day website on AWS with millisecond latency during peak hours and with the least operational overhead, 
+the best option is to use an Amazon S3 bucket to host the website's static content, deploy an Amazon CloudFront distribution, 
+set the S3 bucket as the origin, use Amazon API Gateway and AWS Lambda functions for the backend APIs, and store the data in Amazon DynamoDB. 
+This option requires minimal operational overhead and can handle millions of requests each hour with millisecond latency during peak hours. 
+Therefore, option D is the correct answer.
+Reference: https://aws.amazon.com/blogs/compute/building-a-serverless-multi-player-game-with-aws- lambda-and-amazon-

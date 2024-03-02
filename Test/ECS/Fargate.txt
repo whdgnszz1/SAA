@@ -1,0 +1,16 @@
+한 회사가 여러 마이크로서비스로 구성된 애플리케이션을 구축하고 있습니다. 회사는 컨테이너 기술을 사용하여 AWS에 소프트웨어를 배포하기로 결정했습니다. 
+회사에는 유지 관리 및 확장을 위한 지속적인 노력을 최소화하는 솔루션이 필요합니다. 회사는 추가 인프라를 관리할 수 없습니다.
+이러한 요구 사항을 충족하기 위해 솔루션 설계자는 어떤 조치 조합을 취해야 합니까? (2개를 선택하세요.)
+
+A. Amazon Elastic Container Service(Amazon ECS) 클러스터를 배포합니다.
+B. 여러 가용 영역에 걸쳐 있는 Amazon EC2 인스턴스에 Kubernetes 제어 플레인을 배포합니다.
+C. Amazon EC2 시작 유형을 사용하여 Amazon Elastic Container Service(Amazon ECS) 서비스를 배포합니다. 2보다 크거나 같은 원하는 작업 번호 수준을 지정합니다.
+D. Fargate 시작 유형을 사용하여 Amazon Elastic Container Service(Amazon ECS) 서비스를 배포합니다. 2보다 크거나 같은 원하는 작업 번호 수준을 지정합니다.
+E. 여러 가용 영역에 걸쳐 있는 Amazon EC2 인스턴스에 Kubernetes 작업자 노드를 배포합니다. 각 마이크로서비스에 대해 두 개 이상의 복제본을 지정하는 배포를 만듭니다. 
+
+Answer: A D
+
+Explanation:
+AWS Fargate is a technology that you can use with Amazon ECS to run containers without having to manage servers or clusters of Amazon EC2 instances. 
+With Fargate, you no longer have to provision, configure, or scale clusters of virtual machines to run containers. 
+https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html
