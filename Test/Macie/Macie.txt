@@ -1,0 +1,34 @@
+회사는 Amazon S3에 데이터를 저장합니다. 규정에 따라 데이터에는 개인 식별 정보(Pll)가 포함되어서는 안 됩니다. 
+회사는 최근 S3 버킷에 Pll이 포함된 일부 객체가 있다는 사실을 발견했습니다. 
+회사는 S3 버킷에서 Pll을 자동으로 감지하고 회사 보안팀에 알려야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?
+
+A. Amazon Macie를 사용하세요. Macie 결과에서 SensitiveData 이벤트 유형을 필터링하고 Amazon SNS(Amazon SNS) 알림을 보안 팀에 보내는 Amazon EventBridge 규칙을 생성합니다.
+B. Amazon GuardDuty를 사용하세요. GuardDuty 결과에서 CRITICAL 이벤트 유형을 필터링하고 Amazon SNS(Amazon SNS) 알림을 보안 팀에 보내는 Amazon EventBridge 규칙을 생성합니다.
+C. Amazon Macie를 사용하세요. Macie 결과에서 SensitiveData:S30bject/Personal 이벤트 유형을 필터링하고 
+Amazon Simple Queue Service(Amazon SQS) 알림을 보안 팀에 보내는 Amazon EventBridge 규칙을 생성합니다.
+D. Amazon GuardDuty를 사용합니다. GuardDuty 결과에서 CRITICAL 이벤트 유형을 필터링하고 
+Amazon Simple Queue Service(Amazon SQS) 알림을 보안 팀에 보내는 Amazon EventBridge 규칙을 생성합니다.
+
+정답: A. Amazon Macie를 사용하세요. Macie 결과에서 SensitiveData 이벤트 유형을 필터링하고 Amazon SNS(Amazon SNS) 알림을 보안 팀에 보내는 Amazon EventBridge 규칙을 생성합니다.
+주요 키워드 설명:
+Amazon Macie: Amazon Macie는 기계 학습 및 패턴 일치를 사용하여 S3 버킷에서 민감한 데이터를 자동으로 식별하고 분류하는 보안 서비스입니다. 
+Macie는 PII와 같은 민감한 정보를 포함한 데이터를 탐지할 수 있으며, 보안 위협이나 데이터 유출 위험에 대해 알림을 제공합니다.
+
+Amazon SNS (Amazon Simple Notification Service): Amazon SNS는 완전 관리형 메시징 서비스로, 
+텍스트 메시지(SMS 메시지), 이메일, Amazon SQS 큐 또는 AWS Lambda 함수와 같은 다양한 구독자에게 메시지를 쉽게 보낼 수 있습니다.
+
+Amazon EventBridge: Amazon EventBridge는 서버리스 이벤트 버스 서비스로, 
+AWS 서비스, 내장된 SaaS 애플리케이션 및 사용자 정의 애플리케이션 간의 데이터 연결을 쉽게 구축할 수 있습니다. 
+EventBridge는 특정 이벤트에 대한 규칙을 생성하고, 이러한 이벤트가 발생할 때 다른 서비스로 알림을 보낼 수 있습니다.
+
+솔루션의 이점:
+자동화된 PII 탐지: Amazon Macie를 사용하면 S3 버킷의 데이터에 대한 지속적인 모니터링을 통해 PII 포함 여부를 자동으로 감지할 수 있습니다.
+
+즉각적인 알림: Macie가 PII를 감지하면, EventBridge 규칙을 통해 자동으로 SNS 알림을 생성하여 보안 팀에 즉각적으로 경고할 수 있습니다. 이를 통해 빠른 대응이 가능합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+B, D 옵션 (Amazon GuardDuty 사용): Amazon GuardDuty는 보안 위협 탐지 서비스지만, Amazon Macie와 달리 S3 버킷 내의 PII 탐지에 특화되어 있지 않습니다.
+
+C 옵션: 이 옵션도 Amazon Macie를 사용하지만, Amazon SNS 대신 Amazon SQS를 알림 메커니즘으로 제안하고 있습니다. SNS는 실시간 알림에 더 적합합니다.
+
+정답 A는 Amazon Macie를 사용하여 S3 버킷에서 PII를 자동으로 감지하고, Amazon EventBridge와 SNS를 통해 보안 팀에 즉각적으로 알림을 보내는 효율적인 솔루션을 제공합니다.

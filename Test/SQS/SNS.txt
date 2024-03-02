@@ -1,0 +1,10 @@
+회사에는 Amazon RDS의 데이터베이스에 목록을 저장하는 자동차 판매 웹 사이트가 있습니다. 
+자동차가 판매되면 해당 목록을 웹 사이트에서 제거해야 하며 데이터를 여러 대상 시스템으로 전송해야 합니다.
+솔루션 아키텍트는 어떤 디자인을 추천해야 할까요?
+
+A. Amazon RDS의 데이터베이스가 업데이트될 때 트리거되는 AWS Lambda 함수를 생성하여 대상이 사용할 Amazon Simple Queue Service(Amazon SQS) 대기열에 정보를 보냅니다.
+B. Amazon RDS의 데이터베이스가 업데이트될 때 트리거되는 AWS Lambda 함수를 생성하여 대상이 사용할 Amazon Simple Queue Service(Amazon SQS) FIFO 대기열에 정보를 보냅니다.
+C. RDS 이벤트 알림을 구독하고 Amazon Simple Queue Service(Amazon SQS) 대기열을 여러 Amazon Simple Notification Service(Amazon SNS) 주제로 팬아웃하여 보냅니다. AWS Lambda 함수를 사용하여 대상 업데이트
+D. RDS 이벤트 알림을 구독하고 여러 Amazon Simple Queue Service(Amazon SQS) 대기열에 팬아웃된 Amazon Simple Notification Service(Amazon SNS) 주제를 보냅니다. AWS Lambda 함수를 사용하여 대상을 업데이트합니다.
+
+정답: D

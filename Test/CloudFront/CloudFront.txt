@@ -1,0 +1,13 @@
+솔루션 설계자가 다가오는 음악 이벤트를 위해 웹사이트를 최적화하고 있습니다. 공연 영상은 실시간으로 스트리밍되며, 요청 시 시청 가능합니다. 
+이번 행사는 전 세계 온라인 관객의 관심을 끌 것으로 예상된다.
+실시간 스트리밍과 주문형 스트리밍 모두의 성능을 향상시키는 서비스는 무엇입니까?
+
+A. Amazon CloudFront
+B. AWS 글로벌 액셀러레이터
+C. 아마존 루트 53
+D. Amazon S3 전송 가속화
+
+Answer: A
+Explanation:
+You can use CloudFront to deliver video on demand (VOD) or live streaming video using any HTTP origin.
+One way you can set up video workflows in the cloud is by using CloudFront together with AWS Media Services.
