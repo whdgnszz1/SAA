@@ -1,0 +1,21 @@
+NO.44 A company hosts an application on AWS Lambda functions mat are invoked by an Amazon API Gateway API 
+The Lambda functions save customer data to an Amazon Aurora MySQL database Whenever the company upgrades the database, 
+the Lambda functions fail to establish database connections until the upgrade is complete 
+The result is that customer data Is not recorded for some of the event A solutions architect needs to design 
+a solution that stores customer data that is created during database upgrades Which solution will meet these requirements?
+
+A. Provision an Amazon RDS proxy to sit between the Lambda functions and the database Configure the Lambda functions to connect to the RDS proxy
+B. Increase the run time of me Lambda functions to the maximum Create a retry mechanism in the code that stores the customer data in the database
+C. Persist the customer data to Lambda local storage. Configure new Lambda functions to scan the local storage to save the customer data to the database.
+D. Store the customer data m an Amazon Simple Queue Service (Amazon SOS) FIFO queue Create a new Lambda function that polls the queue and stores the customer data in the database
+
+Answer: D
+Explanation:
+https://www.learnaws.org/2020/12/13/aws-rds-proxy-deep-dive/
+RDS proxy can improve application availability in such a situation 
+by waiting for the new database instance to be functional and maintaining any requests received from the application during this time. 
+The end result is that the application is more resilient to issues with the underlying database. 
+This will enable solution to hold data till the time DB comes back to normal. 
+RDS proxy is to optimally utilize the connection between Lambda and DB. 
+Lambda can open multiple connection concurrently which can be taxing on DB compute resources, 
+hence RDS proxy was introduced to manage and leverage these connections efficiently.

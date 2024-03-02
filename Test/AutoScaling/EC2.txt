@@ -1,0 +1,22 @@
+NO.40 A company is launching an application on AWS. 
+The application uses an Application Load (ALB) to direct traffic to at least two Amazon EC2 instances in a single target group.
+The instances are in an Auto Scaling group for each environment. 
+The company requires a development and a production environment. 
+The production environment will have periods of high traffic.
+Which solution will configure the development environment MOST cost-effectively?
+
+A. Reconfigure the target group in the development environment to have one EC2 instance as a target.
+B. Change the ALB balancing algorithm to least outstanding requests.
+C. Reduce the size of the EC2 instances in both environments.
+D. Reduce the maximum number of EC2 instances in the development environment's Auto Scaling group
+
+Answer: D
+Explanation:
+This option will configure the development environment in the most cost-effective way 
+as it reduces the number of instances running in the development environment and 
+therefore reduces the cost of running the application. 
+The development environment typically requires less resources than the production environment, 
+and it is unlikely that the development environment will have periods of high traffic 
+that would require a large number of instances. 
+By reducing the maximum number of instances in the development environment's Auto Scaling group, 
+the company can save on costs while still maintaining a functional development environment.

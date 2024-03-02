@@ -1,0 +1,36 @@
+NO.43 A company is deploying an application that processes streaming data in near-real time 
+The company plans to use Amazon EC2 instances for the workload 
+The network architecture must be configurable to provide the lowest possible latency between nodes
+Which combination of network solutions will meet these requirements? (Select TWO)
+
+A. Enable and configure enhanced networking on each EC2 instance
+B. Group the EC2 instances in separate accounts
+C. Run the EC2 instances in a cluster placement group
+D. Attach multiple elastic network interfaces to each EC2 instance
+E. Use Amazon Elastic Block Store (Amazon EBS) optimized instance types.
+
+정답: A, C
+
+A. 각 EC2 인스턴스에서 향상된 네트워킹을 활성화하고 구성합니다.
+C. EC2 인스턴스를 클러스터 배치 그룹에서 실행합니다.
+
+주요 키워드 설명:
+향상된 네트워킹: EC2 인스턴스의 네트워크 성능을 향상시키는 기능으로, 더 높은 대역폭, 낮은 대기 시간, 낮은 지터를 제공합니다. 
+향상된 네트워킹은 SR-IOV(Single Root I/O Virtualization) 또는 EFA(Elastic Fabric Adapter)를 사용하여 네트워크 하드웨어에 직접 액세스합니다.
+
+클러스터 배치 그룹: 단일 가용 영역 내에서 서로 가까이 배치된 인스턴스의 논리적 그룹입니다. 
+클러스터 배치 그룹은 배치 그룹 옵션 중 가장 낮은 네트워크 대기 시간과 가장 높은 네트워크 처리량을 제공합니다.
+
+솔루션의 이점:
+향상된 네트워킹을 사용하면, 인스턴스 간의 네트워크 성능이 향상되어 대규모 스트리밍 데이터 처리에 필요한 낮은 대기 시간과 높은 처리량을 제공할 수 있습니다.
+
+클러스터 배치 그룹을 사용하면, 인스턴스가 서로 물리적으로 가까운 위치에 배치되어 네트워크 통신의 대기 시간을 최소화할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+B 옵션: EC2 인스턴스를 별도의 계정에 그룹화하는 것은 노드 간의 낮은 대기 시간을 제공하는 데 직접적인 영향을 주지 않습니다.
+
+D 옵션: 각 EC2 인스턴스에 여러 엘라스틱 네트워크 인터페이스를 연결하는 것은 네트워크 성능 향상과 직접적인 관련이 없습니다.
+
+E 옵션: Amazon EBS 최적화 인스턴스 유형을 사용하는 것은 네트워크 성능 향상과 직접적인 관련이 없으며, EBS 볼륨의 성능을 향상시키는 데 초점을 맞춥니다.
+
+따라서, A와 C 옵션은 네트워크 아키텍처를 구성하여 노드 간에 가능한 가장 낮은 대기 시간을 제공하는 가장 적합한 솔루션 조합을 제공합니다.

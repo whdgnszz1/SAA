@@ -1,0 +1,36 @@
+NO.42 A company hosts multiple applications on AWS for different product lines. 
+The applications use different compute resources, including Amazon EC2 instances and Application Load Balancers. 
+The applications run in different AWS accounts under the same organization in AWS Organizations across multiple AWS Regions.
+Teams for each product line have tagged each compute resource in the individual accounts.
+The company wants more details about the cost for each product line from the consolidated billing feature in Organizations.
+Which combination of steps will meet these requirements? (Select TWO.)
+
+A. Select a specific AWS generated tag in the AWS Billing console.
+B. Select a specific user-defined tag in the AWS Billing console.
+C. Select a specific user-defined tag in the AWS Resource Groups console.
+D. Activate the selected tag from each AWS account.
+E. Activate the selected tag from the Organizations management account.
+
+Answer: B E
+
+B. AWS 결제 콘솔에서 특정 사용자 정의 태그를 선택합니다.
+E. Organizations 관리 계정에서 선택된 태그를 활성화합니다.
+주요 키워드 설명:
+사용자 정의 태그: AWS 리소스에 적용할 수 있는 키-값 쌍으로, 리소스를 분류하고 추적하는 데 사용됩니다. 
+사용자 정의 태그는 비용 할당과 자세한 결제 보고서 생성에도 사용될 수 있습니다.
+
+AWS 결제 콘솔: AWS 사용량과 비용을 추적하고 관리할 수 있는 웹 인터페이스입니다. 사용자는 결제 콘솔을 사용하여 비용 할당 보고서를 생성하고, 태그를 기반으로 비용을 필터링하고 그룹화할 수 있습니다.
+
+Organizations 관리 계정: 조직 내 모든 멤버 계정에 대한 전체 제어 권한을 가진 루트 계정입니다. 
+관리 계정에서 태그를 활성화하면, 해당 태그가 비용 할당 보고서의 열로 나타나며, 제품 라인별로 비용을 필터링하고 그룹화하는 데 사용될 수 있습니다.
+
+솔루션의 이점:
+B 옵션: 사용자 정의 태그를 선택하여 기존 태그 전략을 활용하고, 코드 개발이나 수동 개입 없이 제품 라인별 비용을 할당하고 자세한 결제 보고서를 생성할 수 있습니다.
+
+E 옵션: 관리 계정에서 태그를 활성화함으로써, 조직 내 모든 계정에서 해당 태그를 사용하여 비용을 할당할 수 있게 되며, 운영 오버헤드를 최소화하면서 비용 관리를 간소화할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A, C, D 옵션: 이 옵션들은 사용자 정의 태그를 활성화하고 통합 결제 보고서에서 비용을 할당하는 데 필요한 절차를 충족하지 않습니다. 
+AWS에서 생성된 태그는 사용자가 직접 정의한 태그와 다르며, AWS 리소스 그룹 콘솔은 비용 할당과 직접 관련이 없습니다.
+
+B와 E 옵션은 AWS Organizations의 통합 결제 기능을 사용하여 각 제품 라인의 비용에 대한 자세한 정보를 효과적으로 제공하고, 최소한의 운영 노력으로 요구 사항을 충족하는 솔루션을 제공합니다.

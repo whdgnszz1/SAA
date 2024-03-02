@@ -1,0 +1,29 @@
+NO.48 A company is planning to use an Amazon DynamoDB table for data storage. 
+The company is concerned about cost optimization. The table will not be used on most mornings. 
+In the evenings, the read and write traffic will often be unpredictable. When traffic spikes occur, they will happen very quickly.
+What should a solutions architect recommend?
+
+A. Create a DynamoDB table in on-demand capacity mode.
+B. Create a DynamoDB table with a global secondary index.
+C. Create a DynamoDB table with provisioned capacity and auto scaling.
+D. Create a DynamoDB table in provisioned capacity mode, and configure it as a global table.
+
+정답: A. 온디맨드 용량 모드에서 DynamoDB 테이블을 생성합니다.
+
+주요 키워드 설명:
+
+Amazon DynamoDB 온디맨드 용량 모드: 온디맨드 용량 모드를 사용하면 애플리케이션이 필요로 하는 만큼의 읽기 및 쓰기 처리량을 자동으로 확장하여 제공합니다. 
+사용량이 많지 않을 때 비용을 절감할 수 있으며, 트래픽이 급증할 때 빠르게 대응할 수 있습니다.
+
+솔루션의 이점:
+비용 최적화: 온디맨드 용량 모드는 실제 사용량에 따라 비용을 지불하므로, 아침에 사용되지 않는 시간 동안의 비용을 절감할 수 있습니다.
+
+유연성 및 확장성: 트래픽이 예측할 수 없고 급증하는 환경에서도, DynamoDB는 자동으로 처리량을 조정하여 높은 수준의 성능을 유지할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+B 옵션: 글로벌 보조 인덱스는 쿼리 성능을 향상시키지만, 트래픽 변동성에 대응하거나 비용 최적화에 직접적인 영향을 주지 않습니다.
+
+C & D 옵션: 프로비저닝된 용량 모드는 초기 설정에 따라 고정된 처리량을 제공합니다. 
+자동 스케일링을 구성할 수 있지만, 트래픽이 급증할 때 빠르게 대응하는 데 한계가 있을 수 있으며, 사용하지 않는 시간 동안의 비용 절감 효과가 덜합니다.
+
+결론적으로, A 옵션은 비용 최적화와 예측할 수 없는 트래픽 패턴에 효과적으로 대응할 수 있는 가장 적합한 솔루션을 제공합니다.
