@@ -1,0 +1,54 @@
+NO.72 A company has an ecommerce checkout workflow 
+that writes an order to a database and calls a service to process the payment. 
+Users are experiencing timeouts during the checkout process. 
+When users resubmit the checkout form, multiple unique orders are created for the same desired transaction.
+How should a solutions architect refactor this workflow to prevent the creation of multiple orders? 
+
+A. Configure the web application to send an order message to Amazon Kinesis Data Firehose. 
+Set the payment service to retrieve the message from Kinesis Data Firehose and process the order.
+
+B. Create a rule in AWS CloudTrail to invoke an AWS Lambda function based on the logged application path request 
+Use Lambda to query the database, call the payment service, and pass in the order information.
+
+C. Store the order in the database. 
+Send a message that includes the order number to Amazon Simple Notification Service (Amazon SNS). 
+Set the payment service to poll Amazon SNS. retrieve the message, and process the order.
+
+D. Store the order in the database. 
+Send a message that includes the order number to an Amazon Simple Queue Service (Amazon SQS) FIFO queue. 
+Set the payment service to retrieve the message and process the order. Delete the message from the queue.
+
+Answer: D
+Explanation:
+This approach ensures that the order creation and payment processing steps are separate and atomic. 
+By sending the order information to an SQS FIFO queue, 
+the payment service can process the order one at a time and in the order they were received. 
+If the payment service is unable to process an order, 
+it can be retried later, preventing the creation of multiple orders. 
+The deletion of the message from the queue after it is processed 
+will prevent the same message from being processed multiple times.
+
+D. 데이터베이스에 주문을 저장합니다. 주문 번호를 포함한 메시지를 Amazon Simple Queue Service (Amazon SQS) FIFO 큐로 보냅니다. 결제 서비스가 메시지를 검색하여 주문을 처리하도록 설정합니다. 메시지를 큐에서 삭제합니다.
+
+주요 키워드 설명:
+Amazon Simple Queue Service (Amazon SQS) FIFO 큐: FIFO(First-In-First-Out) 큐는 메시지가 전송된 순서대로 처리되도록 보장합니다. 
+이는 주문 처리 과정에서 중복을 방지하고 순서를 유지하는 데 도움이 됩니다.
+
+메시지 삭제: 주문 처리 후 메시지를 큐에서 삭제하는 것은 동일한 주문이 여러 번 처리되는 것을 방지합니다.
+
+솔루션의 이점:
+D 옵션을 통해, 주문 생성과 결제 처리 단계를 분리하고 원자적으로 만들 수 있습니다. 
+SQS FIFO 큐로 주문 정보를 보냄으로써 결제 서비스는 주문을 받은 순서대로 한 번에 하나씩 처리할 수 있습니다. 
+결제 서비스가 주문을 처리할 수 없는 경우, 나중에 다시 시도할 수 있으며, 이는 여러 주문 생성을 방지합니다. 
+처리 후 메시지를 큐에서 삭제하면 동일한 메시지가 여러 번 처리되는 것을 방지할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A 옵션: Amazon Kinesis Data Firehose를 사용하는 것은 실시간 데이터 스트리밍에 적합하지만, 
+주문 처리와 같은 워크플로우에는 FIFO 큐만큼 정확한 순서 보장이 없습니다.
+
+B 옵션: AWS CloudTrail과 AWS Lambda를 사용하는 것은 로깅 및 특정 이벤트에 대한 반응에 적합하지만, 
+주문 처리 워크플로우의 경우 SQS FIFO 큐를 사용하는 것이 더 직접적이고 효율적입니다.
+
+C 옵션: Amazon SNS를 사용하는 것은 알림 서비스에 적합하지만, SQS FIFO 큐처럼 순서를 보장하고 중복 처리를 방지하는 데는 적합하지 않습니다.
+
+결론적으로, D 옵션은 고가용성을 제공하고 주문 처리 과정에서의 중복을 방지하며 애플리케이션에 최소한의 변경을 요구하는 가장 효과적인 솔루션입니다.

@@ -1,0 +1,80 @@
+NO.70 A company wants to deploy its containerized application workloads to a VPC across three Availability Zones.
+The company needs a solution that is highly available across Availability Zones. 
+The solution must require minimal changes to the application.
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Use Amazon Elastic Container Service (Amazon ECS). 
+Configure Amazon ECS Service Auto Scaling to use target tracking scaling.
+Set the minimum capacity to 3. 
+Set the task placement strategy type to spread with an Availability Zone attribute.
+
+B. Use Amazon Elastic Kubernetes Service (Amazon EKS) self-managed nodes. 
+Configure Application Auto Scaling to use target tracking scaling. 
+Set the minimum capacity to 3.
+
+C. Use Amazon EC2 Reserved Instances. 
+Launch three EC2 instances in a spread placement group. 
+Configure an Auto Scaling group to use target tracking scaling. 
+Set the minimum capacity to 3.
+
+D. Use an AWS Lambda function. Configure the Lambda function to connect to a VPC. 
+Configure Application Auto Scaling to use Lambda as a scalable target. 
+Set the minimum capacity to 3. 
+
+Answer: A
+Explanation:
+The company wants to deploy its containerized application workloads to a VPC across three Availability Zones, 
+with high availability and minimal changes to the application. 
+The solution that will meet these requirements with the least operational overhead is:
+
+* Use Amazon Elastic Container Service (Amazon ECS). 
+Amazon ECS is a fully managed container orchestration service 
+that allows you to run and scale containerized applications on AWS. 
+Amazon ECS eliminates the need for you to install, operate, and scale your own cluster management infrastructure.
+Amazon ECS also integrates with other AWS services, such as VPC, ELB, CloudFormation, CloudWatch, IAM, and more.
+
+* Configure Amazon ECS Service Auto Scaling to use target tracking scaling. 
+Amazon ECS Service Auto Scaling allows you to automatically adjust the number of tasks 
+in your service based on the demand or custom metrics. 
+Target tracking scaling is a policy type that adjusts the number of tasks in your service 
+to keep a specified metric at a target value. 
+For example, you can use target tracking scaling 
+to maintain a target CPU utilization or request count per task for your service.
+
+* Set the minimum capacity to 3. This ensures that your service 
+always has at least three tasks running across three Availability Zones, 
+providing high availability and fault tolerance for your application.
+
+* Set the task placement strategy type to spread with an Availability Zone attribute. 
+This ensures that your tasks are evenly distributed across the Availability Zones in your cluster, 
+maximizing the availability of your service.
+
+This solution will provide high availability across Availability Zones, 
+require minimal changes to the application, and reduce the operational overhead of managing your own cluster infrastructure. 
+
+References:
+* Amazon Elastic Container Service
+* Amazon ECS Service Auto Scaling
+* Target Tracking Scaling Policies for Amazon ECS Services
+* Amazon ECS Task Placement Strategies
+
+
+B 옵션, 즉 Amazon Elastic Kubernetes Service (Amazon EKS)를 사용하는 솔루션도 고가용성을 제공할 수 있습니다. 
+EKS는 Kubernetes 클러스터를 쉽게 배포하고 관리할 수 있는 관리형 서비스로, 여러 가용 영역(AZ)에 걸쳐 애플리케이션을 배포할 수 있어 고가용성을 지원합니다. 
+그러나 A 옵션인 Amazon Elastic Container Service (Amazon ECS)를 선택한 이유는 다음과 같습니다:
+
+운영상의 오버헤드: Amazon ECS는 Amazon EKS보다 설정과 관리 측면에서 간단할 수 있습니다. 
+ECS는 AWS에서 제공하는 완전 관리형 컨테이너 오케스트레이션 서비스로, Kubernetes에 비해 더 적은 구성과 관리가 필요할 수 있습니다. 
+이는 특히 Kubernetes에 대한 경험이 제한적인 팀에게 유리할 수 있습니다.
+
+작업 배치 전략: ECS에서는 작업 배치 전략을 사용하여 컨테이너 인스턴스를 여러 가용 영역에 걸쳐 균등하게 분산시킬 수 있습니다. 
+이는 고가용성을 유지하면서 리소스 활용을 최적화할 수 있게 해줍니다. EKS에서도 비슷한 기능을 구현할 수 있지만, 
+ECS에서는 이러한 기능이 더 직관적으로 제공됩니다.
+
+자동 확장 설정: ECS와 EKS 모두 자동 확장을 지원하지만, ECS 서비스 자동 확장은 타겟 추적, 단계 조정, 예약된 조정 전략 등을 사용하여 
+서비스의 태스크 수를 자동으로 조절할 수 있습니다. 
+이는 트래픽 변화에 따라 태스크를 적절히 조절하여 성능과 비용 효율성을 극대화할 수 있게 해줍니다.
+
+결론적으로, B 옵션(EKS)도 고가용성을 제공할 수 있지만, A 옵션(ECS)이 
+주어진 요구 사항에 대해 운영상의 오버헤드를 최소화하면서 고가용성을 달성하는 데 더 적합한 솔루션으로 간주됩니다. 
+이러한 판단은 각 조직의 구체적인 요구 사항과 AWS 서비스에 대한 경험 및 선호도에 따라 달라질 수 있습니다.

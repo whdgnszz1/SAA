@@ -1,0 +1,20 @@
+NO.76 A company has implemented a self-managed DNS service on AWS. The solution consists of the following:
+* Amazon EC2 instances in different AWS Regions
+* Endpomts of a standard accelerator m AWS Global Accelerator
+The company wants to protect the solution against DDoS attacks What should a solutions architect do to meet this requirement?
+
+A. Subscribe to AWS Shield Advanced Add the accelerator as a resource to protect
+B. Subscribe to AWS Shield Advanced Add the EC2 instances as resources to protect
+C. Create an AWS WAF web ACL that includes a rate-based rule Associate the web ACL with the accelerator
+D. Create an AWS WAF web ACL that includes a rate-based rule Associate the web ACL with the EC2 instances
+
+Answer: A
+Explanation:
+AWS Shield is a managed service that provides protection against 
+Distributed Denial of Service (DDoS) attacks for applications running on AWS. 
+AWS Shield Standard is automatically enabled to all AWS customers at no additional cost. 
+AWS Shield Advanced is an optional paid service. 
+AWS Shield Advanced provides additional protections against more sophisticated and larger attacks 
+for your applications running on Amazon Elastic Compute Cloud (EC2), Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Route 53. 
+
+https://docs.aws.amazon.com/waf/latest/developerguide/ddos-event-mitigation-logic-gax.html

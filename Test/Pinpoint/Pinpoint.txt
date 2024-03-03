@@ -1,0 +1,27 @@
+NO.69 A company is developing a marketing communications service that targets mobile app users. 
+The company needs to send confirmation messages with Short Message Service (SMS) to its users.
+The users must be able to reply to the SMS messages. 
+The company must store the responses for a year for analysis.
+What should a solutions architect do to meet these requirements?
+
+A. Create an Amazon Connect contact flow to send the SMS messages. Use AWS Lambda to process the responses.
+B. Build an Amazon Pinpoint journey. Configure Amazon Pinpoint to send events 
+to an Amazon Kinesis data stream for analysis and archiving.
+C. Use Amazon Simple Queue Service (Amazon SQS) to distribute the SMS messages. Use AWS Lambda to process the responses.
+D. Create an Amazon Simple Notification Service (Amazon SNS) FIFO topic. Subscribe an Amazon Kinesis data stream to the SNS topic for analysis and archiving.
+
+Answer: B
+Explanation:
+https://aws.amazon.com/pinpoint/product-details/sms/ Two-Way Messaging: 
+
+Receive SMS messages from your customers and reply back to them in a chat-like interactive experience. 
+With Amazon Pinpoint, you can create automatic responses when customers send you messages that contain certain keywords. 
+You can even use Amazon Lex to create conversational bots. 
+A majority of mobile phone users read incoming SMS messages almost immediately after receiving them. 
+If you need to be able to provide your customers with urgent or important information, 
+SMS messaging may be the right solution for you. 
+You can use Amazon Pinpoint to create targeted groups of customers, 
+and then send them campaign-based messages. 
+
+You can also use Amazon Pinpoint to send direct messages, 
+such as appointment confirmations, order updates, and one-time passwords.

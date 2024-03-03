@@ -1,0 +1,35 @@
+NO.77 A company wants to configure its Amazon CloudFront distribution to use SSL/TLS certificates. 
+The company does not want to use the default domain name for the distribution. 
+Instead, the company wants to use a different domain name for the distribution.
+Which solution will deploy the certificate with icurring any additional costs?
+
+A. Request an Amazon issued private certificate from AWS Certificate Manager (ACM) in the us-east- 1 Region
+B. Request an Amazon issued private certificate from AWS Certificate Manager (ACM) in the us-west- 1 Region.
+C. Request an Amazon issued public certificate from AWS Certificate Manager (ACU) in the us-east-1 Region
+D. Request an Amazon issued public certificate from AWS Certificate Manager (ACU) in the us-west-1 Regon.
+
+Answer: C
+Explanation:
+This option is the most efficient because it requests an Amazon issued public certificate from AWS Certificate Manager (ACM), 
+which is a service that lets you easily provision, manage, and deploy public and private SSL/TLS certificates 
+for use with AWS services and your internal connected resources. 
+It also requests the certificate in the us-east-1 Region, which is required for using an ACM certificate with CloudFront. 
+It also meets the requirement of deploying the certificate without incurring any additional costs, 
+as ACM does not charge for certificates that are used with supported AWS services. 
+This solution meets the requirement of configuring its CloudFront distribution to use SSL/TLS certificates 
+and using a different domain name for the distribution. 
+
+Option A is less efficient because it requests an Amazon issued private certificate from ACM, 
+which is a type of certificate that can be used only within your organization or virtual private cloud (VPC).
+However, this does not meet the requirement of configuring its CloudFront distribution to use SSL/TLS certificates, 
+as CloudFront requires a public certificate. 
+It also requests the certificate in the us-east-1 Region, which is correct. 
+
+Option B is less efficient because it requests an Amazon issued private certificate from ACM, 
+which is incorrect for the same reason as option A. 
+It also requests the certificate in the us-west-1 Region, 
+which is incorrect as CloudFront requires a certificate in the us- east-1 Region. 
+
+Option D is less efficient because it requests an Amazon issued public certificate from ACM, which is correct.
+However, it requests the certificate in the us-west-1 Region, 
+which is incorrect as CloudFront requires a certificate in the us-east-1 Region.
