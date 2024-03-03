@@ -1,0 +1,42 @@
+NO.84 A company runs a web application on Amazon EC2 instances in multiple Availability Zones. 
+The EC2 instances are in private subnets. 
+A solutions architect implements an internet-facing Application Load Balancer (ALB) 
+and specifies the EC2 instances as the target group. 
+However, the internet traffic is not reaching the EC2 instances.
+How should the solutions architect reconfigure the architecture to resolve this issue?
+
+A. Replace the ALB with a Network Load Balancer. 
+Configure a NAT gateway in a public subnet to allow internet traffic.
+
+B. Move the EC2 instances to public subnets. 
+Add a rule to the EC2 instances' security groups to allow outbound traffic to 0.0.0.0/0.
+
+C. Update the route tables for the EC2 instances' subnets to send 0.0.0.0/0 traffic through the internet gateway route. 
+Add a rule to the EC2 instances' security groups to allow outbound traffic to 0.0.0.0/0.
+
+D. Create public subnets in each Availability Zone. 
+Associate the public subnets with the ALB.
+Update the route tables for the public subnets with a route to the private subnets.
+
+정답: D. 각 가용 영역에 퍼블릭 서브넷을 생성합니다. 퍼블릭 서브넷을 ALB와 연결합니다. 퍼블릭 서브넷의 라우트 테이블을 프라이빗 서브넷으로의 라우트로 업데이트합니다.
+
+주요 키워드 설명:
+퍼블릭 서브넷: 인터넷에서 직접 액세스할 수 있는 서브넷입니다. 퍼블릭 서브넷에는 인터넷 게이트웨이(IGW)를 통한 0.0.0.0/0 트래픽 라우팅이 포함됩니다.
+
+Application Load Balancer (ALB): HTTP 및 HTTPS 트래픽을 여러 타겟(EC2 인스턴스, 컨테이너 등)에 자동으로 분산시키는 인터넷 대면 로드 밸런서입니다.
+
+솔루션의 이점:
+D 옵션을 통해, ALB가 인터넷 트래픽을 받을 수 있는 퍼블릭 서브넷을 생성하고, 이 서브넷을 ALB와 연결함으로써, 
+인터넷에서 EC2 인스턴스로의 트래픽 경로를 확립할 수 있습니다. 이 구성은 인터넷 트래픽이 ALB를 통해 EC2 인스턴스에 도달할 수 있도록 하여 문제를 해결합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A 옵션: Network Load Balancer를 사용하고 NAT 게이트웨이를 구성하는 것은 
+프라이빗 서브넷에서 인터넷으로의 아웃바운드 트래픽을 가능하게 하지만, 인터넷에서의 인바운드 트래픽 처리와 관련하여 문제를 해결하지 못합니다.
+
+B 옵션: EC2 인스턴스를 퍼블릭 서브넷으로 이동하는 것은 가능한 해결책이지만, 
+ALB를 사용하여 트래픽을 관리하는 현재 설정과는 다른 접근 방식이며, 더 복잡하고 보안상의 우려가 있을 수 있습니다.
+
+C 옵션: 라우트 테이블을 업데이트하는 것은 프라이빗 서브넷에서 인터넷 게이트웨이로의 아웃바운드 트래픽을 허용하지만, 
+인터넷 트래픽이 EC2 인스턴스로 직접 도달하는 것은 아니며, ALB 설정과 관련된 문제를 해결하지 않습니다.
+
+결론적으로, D 옵션은 고가용성을 유지하면서 EC2 인스턴스로의 인터넷 트래픽을 허용합니다.

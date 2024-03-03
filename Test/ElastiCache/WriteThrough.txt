@@ -1,0 +1,44 @@
+NO.86 A company hosts a three-tier web application in the AWS Cloud. 
+A Multi-AZ Amazon RDS for MySQL server forms the database layer. 
+Amazon ElastiCache forms the cache layer. 
+The company wants a caching strategy that adds or updates data in the cache 
+when a customer adds an item to the database. 
+The data in the cache must always match the data in the database.
+Which solution will meet these requirements?
+
+A. Implement the lazy loading caching strategy
+B. Implement the write-through caching strategy.
+C. Implement the adding TTL caching strategy.
+D. Implement the AWS AppConfig caching strategy.
+
+Answer: B
+Explanation:
+A write-through caching strategy adds or updates data in the cache whenever data is written to the database.
+This ensures that the data in the cache is always consistent with the data in the database. 
+A write- through caching strategy also reduces the cache miss penalty, 
+as data is always available in the cache when it is requested. 
+
+However, a write-through caching strategy can increase the write latency, 
+as data has to be written to both the cache and the database. 
+A write-through caching strategy is suitable for applications that require high data consistency and low read latency.
+
+A lazy loading caching strategy only loads data into the cache 
+when it is requested, and updates the cache when there is a cache miss. 
+This can result in stale data in the cache, as data is not updated in the cache when it is changed in the database. 
+A lazy loading caching strategy is suitable for applications
+that can tolerate some data inconsistency and have a low cache miss rate.
+
+An adding TTL caching strategy assigns a time-to-live (TTL) value to each data item in the cache, 
+and removes the data from the cache when the TTL expires. 
+This can help prevent stale data in the cache, as data is periodically refreshed from the database. 
+However, an adding TTL caching strategy can also increase the cache miss rate, 
+as data can be evicted from the cache before it is requested. 
+An adding TTL caching strategy is suitable for applications 
+that have a high cache hit rate and can tolerate some data inconsistency.
+
+An AWS AppConfig caching strategy is not a valid option, 
+as AWS AppConfig is a service that enables customers to quickly deploy validated configurations 
+to applications of any size and scale. 
+AWS AppConfig does not provide a caching layer for web applications.
+
+References: Caching strategies - Amazon ElastiCache, Caching for high-volume workloads with Amazon ElastiCache

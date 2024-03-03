@@ -1,0 +1,50 @@
+NO.79 A company has an application that delivers on-demand training videos to students around the world. 
+The application also allows authorized content developers to upload videos. 
+The data is stored in an Amazon S3 bucket in the us-east-2 Region.
+The company has created an S3 bucket in the eu-west-2 Region and an S3 bucket in the ap-southeast- 1 Region. 
+The company wants to replicate the data to the new S3 buckets. 
+The company needs to minimize latency for developers who upload videos 
+and students who stream videos near eu-west-2 and ap-southeast-1.
+Which combination of steps will meet these requirements with the FEWEST changes to the application?
+(Select TWO.)
+
+A. Configure one-way replication from the us-east-2 S3 bucket to the eu-west-2 S3 bucket. 
+Configure one-way replication from the us-east-2 S3 bucket to the ap-southeast-1 S3 bucket.
+
+B. Configure one-way replication from the us-east-2 S3 bucket to the eu-west-2 S3 bucket. 
+Configure one-way replication from the eu-west-2 S3 bucket to the ap-southeast-1 S3 bucket.
+
+C. Configure two-way (bidirectional) replication among the S3 buckets that are in all three Regions. 
+
+D. Create an S3 Multi-Region Access Point. 
+Modify the application to use the Amazon Resource Name (ARN) of the Multi-Region Access Point for video streaming. 
+Do not modify the application for video uploads.
+
+E. Create an S3 Multi-Region Access Point 
+Modify the application to use the Amazon Resource Name (ARN) of the Multi-Region Access Point for video streaming and uploads.
+
+Answer: A E
+Explanation:
+These two steps will meet the requirements with the fewest changes 
+to the application because they will enable the company to replicate the data to the new S3 buckets 
+and minimize latency for both video streaming and uploads. 
+
+One-way replication from the us-east-2 S3 bucket to the other two S3 buckets will ensure that 
+the data is synchronized across all three regions. 
+
+The company can use S3 Cross-Region Replication (CRR) to automatically copy objects across buckets in different AWS Regions. 
+CRR can help the company achieve lower latency and compliance requirements 
+by keeping copies of their data in different regions. 
+
+Creating an S3 Multi-Region Access Point and modifying the application to use its ARN 
+will allow the company to access the data through a single global endpoint. 
+An S3 Multi-Region Access Point is a globally unique name 
+that can be used to access objects stored in S3 buckets across multiple regions. 
+
+It automatically routes requests to the closest S3 bucket with the lowest latency. 
+By using an S3 Multi-Region Access Point, the company can simplify the application architecture 
+and improve the performance and reliability of the application.
+
+References:
+* Replicating objects
+* Multi-Region Access Points in Amazon S3

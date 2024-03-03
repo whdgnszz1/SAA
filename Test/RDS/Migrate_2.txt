@@ -1,0 +1,42 @@
+NO.87 A company hosts a website analytics application on a single Amazon EC2 On-Demand Instance. 
+The analytics software is written in PHP and uses a MySQL database. 
+The analytics software, the web server that provides PHP, and the database server are all hosted on the EC2 instance. 
+The application is showing signs of performance degradation during busy times and is presenting 5xx errors. 
+The company needs to make the application scale seamlessly.
+Which solution will meet these requirements MOST cost-effectively?
+
+A. Migrate the database to an Amazon RDS for MySQL DB instance. 
+Create an AMI of the web application. 
+Use the AMI to launch a second EC2 On-Demand Instance. 
+Use an Application Load Balancer to distribute the load to each EC2 instance.
+
+B. Migrate the database to an Amazon RDS for MySQL DB instance. 
+Create an AMI of the web application. 
+Use the AMI to launch a second EC2 On-Demand Instance. 
+Use Amazon Route 53 weighted routing to distribute the load across the two EC2 instances.
+
+C. Migrate the database to an Amazon Aurora MySQL DB instance. 
+Create an AWS Lambda function to stop the EC2 instance and change the instance type. 
+Create an Amazon CloudWatch alarm to invoke the Lambda function when CPU utilization surpasses 75%.
+
+D. Migrate the database to an Amazon Aurora MySQL DB instance. 
+Create an AMI of the web application.Apply the AMI to a launch template. 
+Create an Auto Scaling group with the launch template Configure the launch template to use a Spot Fleet. 
+Attach an Application Load Balancer to the Auto Scaling group.
+
+Answer: D
+Explanation:
+Migrate the database to Amazon Aurora MySQL - this will let the DB scale on it's own; 
+it'll scale automatically without needing adjustment. 
+
+Create AMI of the web app and using a launch template 
+- this will make the creating of any future instances of the app seamless. 
+They can then be added to the auto scaling group which will save them money as it will scale up and down based on demand. 
+
+Using a spot fleet to launch instances
+- This solves the "MOST cost-effective" portion of the question as spot instances 
+come at a huge discount at the cost of being terminated at any time Amazon deems fit. 
+
+I think this is why there's a bit of disagreement on this. 
+While it's the most cost effective, it would be a terrible choice if amazon were to terminate that spot instance 
+during a busy period.

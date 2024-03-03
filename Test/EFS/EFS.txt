@@ -1,0 +1,49 @@
+NO.82 A company runs an application on Amazon EC2 Linux instances across multiple Availability Zones. 
+The application needs a storage layer that is highly available and Portable Operating System Interface (POSIX) compliant. 
+The storage layer must provide maximum data durability and must be shareable across the EC2 instances. 
+The data in the storage layer will be accessed frequency for the first 30 days 
+and will be accessed infrequently alter that time.
+Which solution will meet these requirements MOST cost-effectively?
+
+A. Use the Amazon S3 Standard storage class 
+Create an S3 Lifecycle policy to move infrequently accessed data to S3 Glacier
+
+B. Use the Amazon S3 Standard storage class. 
+Create an S3 Lifecycle policy to move infrequently accessed data to S3 Standard-Infrequent Access (EF3 Standard-IA).
+
+C. Use the Amazon Elastic File System (Amazon EFS) Standard storage class.
+Create a Lifecycle management policy to move infrequently accessed data to EFS Standard-Infrequent Access (EFS Standard-IA)
+
+D. Use the Amazon Elastic File System (Amazon EFS) One Zone storage class. 
+Create a Lifecycle management policy to move infrequently accessed data to EFS One Zone-Infrequent Access (EFS One Zone-IA).
+
+회사는 여러 가용 영역에 걸쳐 Amazon EC2 Linux 인스턴스에서 애플리케이션을 운영합니다.
+이 애플리케이션은 고가용성을 제공하고 Portable Operating System Interface (POSIX)를 준수하는 스토리지 계층이 필요합니다. 
+스토리지 계층은 최대 데이터 내구성을 제공하고 EC2 인스턴스 간에 공유될 수 있어야 합니다. 
+스토리지 계층의 데이터는 처음 30일 동안 자주 액세스되며 그 이후에는 가끔 액세스됩니다.
+
+선택된 솔루션:
+C. Amazon Elastic File System (Amazon EFS) Standard 스토리지 클래스를 사용합니다. 
+가끔 액세스되는 데이터를 EFS Standard-Infrequent Access (EFS Standard-IA)로 이동하기 위해 수명 주기 관리 정책을 생성합니다.
+
+주요 키워드 설명:
+Amazon Elastic File System (Amazon EFS): Amazon EFS는 완전 관리형 파일 스토리지 서비스로, 
+POSIX 호환 파일 시스템을 제공하여 여러 EC2 인스턴스 간에 파일을 쉽게 공유할 수 있습니다. 높은 내구성과 고가용성을 제공합니다.
+
+EFS Standard-Infrequent Access (EFS Standard-IA): 이 스토리지 클래스는 가끔 액세스되는 데이터를 위해 비용 효율적인 저장소 옵션을 제공합니다. 
+수명 주기 관리 정책을 통해 자주 액세스되지 않는 파일을 자동으로 EFS Standard-IA로 이동하여 비용을 절감할 수 있습니다.
+
+솔루션의 이점:
+C 옵션을 통해, POSIX 호환성이 요구되고, 여러 EC2 인스턴스 간에 공유되어야 하는 고가용성 스토리지 계층을 제공할 수 있습니다. 
+EFS는 높은 내구성을 보장하며, 수명 주기 관리 정책을 사용하여 가끔 액세스되는 데이터를 보다 비용 효율적인 스토리지 클래스로 자동 이동함으로써 
+장기간 데이터 보관 비용을 절감할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A & B 옵션: Amazon S3는 고가용성과 내구성을 제공하는 객체 스토리지 서비스이지만, 
+POSIX 호환 파일 시스템을 제공하지 않으므로 여러 EC2 인스턴스에서 파일 시스템으로 사용하기에는 적합하지 않습니다.
+
+D 옵션: Amazon EFS One Zone 스토리지 클래스는 한 가용 영역에 데이터를 저장하여 비용을 절감하지만, 
+이는 여러 가용 영역에 걸쳐 고가용성을 요구하는 이 시나리오에는 적합하지 않습니다.
+
+결론적으로, C 옵션은 고가용성을 요구하고, 데이터를 처음 30일 동안 자주 액세스하며, 
+그 이후에는 가끔 액세스하는 애플리케이션의 요구 사항을 충족하는 가장 비용 효율적인 솔루션을 제공합니다.
