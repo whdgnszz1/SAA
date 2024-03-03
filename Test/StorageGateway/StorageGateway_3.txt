@@ -1,0 +1,49 @@
+NO.125 A company has an on-premises data center that is running out of storage capacity. 
+The company wants to migrate its storage infrastructure to AWS while minimizing bandwidth costs. 
+The solution must allow for immediate retrieval of data at no additional cost.
+How can these requirements be met?
+
+A. Deploy Amazon S3 Glacier Vault and enable expedited retrieval. 
+Enable provisioned retrieval capacity for the workload.
+
+B. Deploy AWS Storage Gateway using cached volumes. 
+Use Storage Gateway to store data in Amazon S3 while retaining copies of frequently accessed data subsets locally.
+
+C. Deploy AWS Storage Gateway using stored volumes to store data locally. 
+Use Storage Gateway to asynchronously back up point-in-time snapshots of the data to Amazon S3.
+
+D. Deploy AWS Direct Connect to connect with the on-premises data center. 
+Configure AWS Storage Gateway to store data locally. 
+Use Storage Gateway to asynchronously back up point-in-time snapshots of the data to Amazon S3.
+
+Explanation:
+The solution that will meet the requirements is to deploy AWS Storage Gateway using cached volumes and use Storage Gateway to store data in Amazon S3 while retaining copies of frequently accessed data subsets locally. This solution will allow the company to migrate its storage infrastructure to AWS while minimizing bandwidth costs, as it will only transfer data that is not cached locally. The solution will also allow for immediate retrieval of data at no additional cost, as the cached volumes will provide low-latency access to the most recently used data. The data stored in Amazon S3 will be durable, scalable, and secure.
+The other solutions are not as effective as the first one because they either do not meet the requirements or introduce additional costs or complexity. Deploying Amazon S3 Glacier Vault and enabling expedited retrieval will not meet the requirements, as it will incur additional costs for both storage and retrieval. Amazon S3 Glacier is a low-cost storage service for data archiving and backup, but it has longer retrieval times than Amazon S3. Expedited retrieval is a feature that allows faster access to data, but it charges a higher fee per GB retrieved. Provisioned retrieval capacity is a feature that reserves dedicated capacity for expedited retrievals, but it also charges a monthly fee per provisioned capacity unit. Deploying AWS Storage Gateway using stored volumes to store data locally and use Storage Gateway to asynchronously back up point-in-time snapshots of the data to Amazon S3 will not meet the requirements, as it will not migrate the storage infrastructure to AWS, but only create backups. Stored volumes are volumes that store the primary data locally and back up snapshots to Amazon S3. This solution will not reduce the storage capacity needed on-premises, nor will it leverage the benefits of cloud storage. Deploying AWS Direct Connect to connect with the on- premises data center and configuring AWS Storage Gateway to store data locally and use Storage Gateway to asynchronously back up point-in-time snapshots of the data to Amazon S3 will not meet the requirements, as it will also not migrate the storage infrastructure to AWS, but only create backups. AWS Direct Connect is a service that establishes a dedicated network connection between the on-premises data center and AWS, which can reduce network costs and increase bandwidth. However, this solution will also not reduce the storage capacity needed on-premises, nor will it leverage the benefits of cloud storage.
+
+References:
+* AWS Storage Gateway
+* Cached volumes - AWS Storage Gateway
+* Amazon S3 Glacier
+* Retrieving archives from Amazon S3 Glacier vaults - Amazon Simple Storage Service
+* Stored volumes - AWS Storage Gateway
+* AWS Direct Connect
+
+선택된 솔루션:
+B. AWS Storage Gateway를 캐시 볼륨을 사용하여 배포합니다. Storage Gateway를 사용하여 데이터를 Amazon S3에 저장하면서 자주 액세스하는 데이터 하위 집합의 복사본을 로컬에 유지합니다.
+주요 키워드 설명:
+AWS Storage Gateway: AWS 클라우드 스토리지와 온프레미스 환경 사이의 통합을 제공하는 하이브리드 클라우드 스토리지 서비스입니다. 캐시 볼륨을 사용하면 자주 액세스하는 데이터의 로컬 캐시를 유지하면서 Amazon S3에 데이터를 저장할 수 있습니다.
+
+Amazon S3: 스케일링 가능하고, 안전하며, 고성능의 클라우드 스토리지 서비스입니다. 데이터를 저장하고 전 세계 어디서나 쉽게 검색할 수 있습니다.
+
+솔루션의 이점:
+이 솔루션은 대역폭 비용을 최소화하고 스토리지 인프라를 AWS로 마이그레이션하는 데 필요한 요구 사항을 충족합니다. 
+캐시 볼륨을 사용하면 데이터를 Amazon S3에 저장하면서 자주 액세스하는 데이터의 로컬 복사본을 유지할 수 있어 
+데이터 검색 시간을 단축하고 대역폭 사용을 줄일 수 있습니다. 또한, 추가 비용 없이 데이터를 즉시 검색할 수 있는 이점을 제공합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A, C, D 옵션: 이 옵션들은 대역폭 비용을 최소화하고 데이터를 즉시 검색할 수 있도록 하는 주요 요구 사항을 충족하지 못합니다. 
+또한, 이 옵션들은 추가적인 인프라 관리가 필요할 수 있으며, 운영 오버헤드를 증가시킬 수 있습니다.
+
+참조 URL:
+AWS Storage Gateway 공식 문서: https://aws.amazon.com/storagegateway/
+Amazon S3 공식 문서: https://aws.amazon.com/s3/

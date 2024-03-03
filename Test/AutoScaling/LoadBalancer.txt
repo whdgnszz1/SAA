@@ -1,0 +1,32 @@
+NO.122 A company's web application that is hosted in the AWS Cloud recently increased in popularity. 
+The web application currently exists on a single Amazon EC2 instance in a single public subnet. 
+The web application has not been able to meet the demand of the increased web traffic.
+The company needs a solution that will provide high availability and scalability 
+to meet the increased user demand without rewriting the web application.
+Which combination of steps will meet these requirements? (Select TWO.)
+
+A. Replace the EC2 instance with a larger compute optimized instance.
+B. Configure Amazon EC2 Auto Scaling with multiple Availability Zones in private subnets.
+C. Configure a NAT gateway in a public subnet to handle web requests.
+D. Replace the EC2 instance with a larger memory optimized instance.
+E. Configure an Application Load Balancer in a public subnet to distribute web traffic
+
+Answer: B E
+
+Explanation:
+These two steps will meet the requirements because they will provide high availability and scalability 
+for the web application without rewriting it. 
+Amazon EC2 Auto Scaling allows you to automatically adjust the number of EC2 instances in response to changes in demand. 
+By configuring Auto Scaling with multiple Availability Zones in private subnets, 
+you can ensure that your web application is distributed across isolated and fault-tolerant locations, 
+and that your instances are not directly exposed to the internet. 
+An Application Load Balancer operates at the application layer and distributes incoming web traffic across multiple targets, 
+such as EC2 instances, containers, or Lambda functions. 
+
+By configuring an Application Load Balancer in a public subnet, 
+you can enable your web application to handle requests from the internet 
+and route them to the appropriate targets in the private subnets.
+
+References:
+* What is Amazon EC2 Auto Scaling?
+* What is an Application Load Balancer?

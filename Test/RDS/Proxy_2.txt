@@ -1,0 +1,29 @@
+NO.126 A company runs applications on AWS that connect to the company's Amazon RDS database. 
+The applications scale on weekends and at peak times of the year. 
+The company wants to scale the database more effectively for its applications that connect to the database.
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Use Amazon DynamoDB with connection pooling with a target group configuration for the database.
+Change the applications to use the DynamoDB endpoint.
+
+B. Use Amazon RDS Proxy with a target group for the database. 
+Change the applications to use the RDS Proxy endpoint.
+
+C. Use a custom proxy that runs on Amazon EC2 as an intermediary to the database. 
+Change the applications to use the custom proxy endpoint.
+
+D. Use an AWS Lambda function to provide connection pooling with a target group configuration for the database. 
+Change the applications to use the Lambda function.
+
+Answer: B
+
+Explanation:
+Amazon RDS Proxy is a fully managed, highly available database proxy for Amazon Relational Database Service (RDS) 
+that makes applications more scalable, more resilient to database failures, and more secure.
+
+RDS Proxy allows applications to pool and share connections established with the database, 
+improving database efficiency and application scalability. 
+
+RDS Proxy also reduces failover times for Aurora and RDS databases by up to 66% 
+and enables IAM authentication and Secrets Manager integration for database access. 
+RDS Proxy can be enabled for most applications with no code changes.

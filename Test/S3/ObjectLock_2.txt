@@ -1,0 +1,52 @@
+
+NO.129 A company needs to store its accounting records in Amazon S3. 
+The records must be immediately accessible for 1 year and then must be archived for an additional 9 years. 
+No one at the company, including administrative users and root users, 
+can be able to delete the records during the entire 10-year period. 
+The records must be stored with maximum resiliency.
+Which solution will meet these requirements?
+
+A. Store the records in S3 Glacier for the entire 10-year period. 
+Use an access control policy to deny deletion of the records for a period of 10 years.
+
+B. Store the records by using S3 Intelligent-Tiering. 
+Use an IAM policy to deny deletion of the records. 
+After 10 years, change the IAM policy to allow deletion.
+
+C. Use an S3 Lifecycle policy to transition the records from S3 Standard 
+to S3 Glacier Deep Archive after 1 year. 
+Use S3 Object Lock in compliance mode for a period of 10 years.
+
+D. Use an S3 Lifecycle policy to transition the records from S3 Standard 
+to S3 One Zone-Infrequent Access (S3 One Zone-IA) after 1 year. 
+Use S3 Object Lock in governance mode for a period of 10 years.
+
+Answer: C
+Explanation:
+To meet the requirements of immediately accessible records for 1 year 
+and then archived for an additional 9 years with maximum resiliency, 
+we can use S3 Lifecycle policy to transition records from S3 Standard 
+to S3 Glacier Deep Archive after 1 year. 
+
+And to ensure that the records cannot be deleted by anyone, including administrative and root users, 
+we can use S3 Object Lock in compliance mode for a period of 10 years.
+
+Therefore, the correct answer is option C.
+Reference: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html
+
+키워드:
+S3 라이프사이클 정책: 이 정책을 사용하여 데이터를 S3 Standard에서 S3 Glacier Deep Archive로 자동으로 이동할 수 있습니다. 
+이는 1년 동안 즉시 접근 가능하게 유지한 다음 추가 9년 동안 보관해야 하는 요구 사항을 충족시킵니다.
+
+S3 Object Lock 컴플라이언스 모드: 이 모드를 사용하면 설정된 보존 기간 동안 데이터를 변경하거나 삭제하는 것을 방지할 수 있습니다. 
+이 경우, 10년 동안 아무도 기록을 삭제할 수 없도록 합니다. 이는 관리자나 루트 사용자조차도 데이터를 삭제할 수 없게 하므로 요구 사항을 충족합니다.
+
+최대 복원력: S3 Glacier Deep Archive는 장기 데이터 보관을 위한 비용 효율적이고 내구성 있는 스토리지 솔루션을 제공합니다. 
+데이터는 여러 가용 영역에 걸쳐 복제되어 최대의 복원력을 제공합니다.
+
+다른 옵션들이 왜 적절하지 않은가:
+A: S3 Glacier를 10년 동안 사용하는 것은 비용 효율적이지만, 액세스 제어 정책만으로는 삭제를 완전히 방지할 수 없습니다.
+
+B: S3 Intelligent-Tiering을 사용하고 IAM 정책으로 삭제를 금지하는 것은 가능하지만, 10년 후에 정책을 변경하여 삭제를 허용하는 것은 요구 사항을 충족시키지 않습니다.
+
+D: S3 One Zone-IA로 전환하고 거버넌스 모드의 S3 Object Lock을 사용하는 것은 데이터의 복원력 측면에서 권장되지 않습니다.

@@ -1,0 +1,33 @@
+NO.130 A company has a web application with sporadic usage patterns 
+There is heavy usage at the beginning of each month moderate usage at the start of each week 
+and unpredictable usage during the week 
+The application consists of a web server and a MySQL database server running inside the data center 
+The company would like to move the application to the AWS Cloud and needs to select a cost-effective database platform 
+that will not require database modifications 
+Which solution will meet these requirements?
+
+A. Amazon DynamoDB
+B. Amazon RDS for MySQL
+C. MySQL-compatible Amazon Aurora Serverless
+D. MySQL deployed on Amazon EC2 in an Auto Scaling group 
+
+Answer: C
+
+Explanation:
+Amazon RDS for MySQL is a fully-managed relational database service 
+that makes it easy to set up, operate, and scale MySQL deployments in the cloud. 
+Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Amazon Aurora (MySQL-compatible edition), 
+where the database will automatically start up, shut down, and scale capacity up or down based on your application's needs. 
+It is a simple, cost-effective option for infrequent, intermittent, or unpredictable workloads.
+
+MySQL 호환 Amazon Aurora Serverless는 Amazon Aurora의 온디맨드, 자동 스케일링 구성으로, 
+애플리케이션의 요구에 따라 데이터베이스가 자동으로 시작, 종료되고 용량이 자동으로 조정됩니다.
+간헐적, 불규칙적 또는 예측할 수 없는 워크로드에 대한 간단하고 비용 효과적인 옵션을 제공합니다.
+
+Amazon RDS for MySQL은 클라우드에서 MySQL 배포를 쉽게 설정, 운영 및 확장할 수 있는 완전 관리형 관계형 데이터베이스 서비스입니다. 
+그러나 서버리스 버전보다 비용 효율적이지 않을 수 있습니다.
+
+Amazon DynamoDB와 Amazon EC2에서 Auto Scaling 그룹으로 배포된 MySQL은 요구 사항을 충족시키지만, 
+Aurora Serverless보다 더 많은 관리가 필요하거나 비용 효율적이지 않을 수 있습니다.
+
+이 솔루션은 사용 패턴이 간헐적이고 예측할 수 없는 애플리케이션에 적합하며, 데이터베이스 수정 없이 클라우드로 쉽게 이전할 수 있게 해줍니다.
