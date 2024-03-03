@@ -1,0 +1,38 @@
+
+NO.115 A company will deployed a web application on AWS. 
+The company hosts the backend database on Amazon RDS for MySQL with a primary DB instance 
+and five read replicas to support scaling needs. 
+The read replicas must log no more than 1 second bahind the primary DB Instance. 
+The database routinely runs scheduled stored procedures.
+As traffic on the website increases, the replicas experinces addtional lag during periods of peak lead. 
+A solutions architect must reduce the replication lag as much as possible. 
+The solutions architect must minimize changes to the applicatin code and must minimize ongoing overhead.
+Which solution will meet these requirements?
+
+A. Migrate the database to Amazon Aurora MySQL. 
+Replace the read replicas with Aurora Replicas, and configure Aurora Auto Scaling. 
+Replace the stored procedures with Aurora MySQL native functions. 
+
+B. Deploy an Amazon ElastiCache for Redis cluster in fornt of the database. 
+Modify the application to check the cache before the application queries the database. 
+Replace the stored procedures with AWS Lambda functions.
+
+C. Migrate the database to a MySQL database that runs on Amazon EC2 instances. 
+Choose large, compute optimized EC2 instances for all replica nodes, 
+Maintain the stored procedures on the EC2 instances.
+
+D. Migrate the database to Amazon DynamoDB, 
+Provision number of read capacity units (RCUs) to support the required throughput, 
+and configure on-demand capacity scaling. Replace the stored procedures with DynamoDB streams.
+
+Answer: A
+
+Explanation:
+Option A is the most appropriate solution for reducing replication lag 
+without significant changes to the application code and minimizing ongoing operational overhead. 
+Migrating the database to Amazon Aurora MySQL allows for improved replication performance 
+and higher scalability compared to Amazon RDS for MySQL. 
+Aurora Replicas provide faster replication, reducing the replication lag, and Aurora Auto Scaling ensures 
+that there are enough Aurora Replicas to handle the incoming traffic. 
+Additionally, Aurora MySQL native functions can replace the stored procedures, 
+reducing the load on the database and improving performance.

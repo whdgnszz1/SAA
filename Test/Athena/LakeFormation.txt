@@ -1,0 +1,48 @@
+NO.117 A company has an Amazon S3 data lake that is governed by AWS Lake Formation 
+The company wants to create a visualization in Amazon QuickSight by joining the data 
+in the data lake with operational data 
+that is stored in an Amazon Aurora MySQL database 
+The company wants to enforce column-level authorization 
+so that the company's marketing team can access only a subset of columns in the database 
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Use Amazon EMR to ingest the data directly 
+from the database to the QuickSight SPICE engine Include only the required columns
+
+B. Use AWS Glue Studio to ingest the data 
+from the database to the S3 data lake Attach an IAM policy to the QuickSight users to enforce column-level access control. 
+Use Amazon S3 as the data source in QuickSight
+
+C. Use AWS Glue Elastic Views to create a materialized view 
+for the database in Amazon S3 Create an S3 bucket policy 
+to enforce column-level access control for the QuickSight users 
+Use Amazon S3 as the data source in QuickSight.
+
+D. Use a Lake Formation blueprint to ingest the data 
+from the database to the S3 data lake Use Lake Formation 
+to enforce column-level access control for the QuickSight users 
+Use Amazon Athena as the data source in QuickSight
+
+
+정답: D. 데이터베이스에서 S3 데이터 레이크로 데이터를 수집하기 위해 Lake Formation 블루프린트를 사용합니다. 
+QuickSight 사용자에 대한 열 수준 액세스 제어를 적용하기 위해 Lake Formation을 사용합니다. 
+QuickSight에서 데이터 소스로 Amazon Athena를 사용합니다.
+
+주요 키워드 설명:
+Lake Formation 블루프린트: AWS Lake Formation에서 제공하는 사전 구성된 워크플로우로, Amazon Aurora MySQL과 같은 다양한 데이터 소스에서 Amazon S3 데이터 레이크로 데이터를 쉽게 수집할 수 있습니다.
+
+열 수준 액세스 제어: 사용자가 데이터베이스의 특정 열에만 액세스할 수 있도록 제한하는 보안 메커니즘입니다. 이를 통해 민감한 정보의 노출을 방지하고 데이터에 대한 더 세분화된 액세스 제어를 제공할 수 있습니다.
+
+Amazon Athena: Amazon S3에 저장된 데이터를 SQL 쿼리를 사용하여 직접 분석할 수 있는 서버리스 대화형 쿼리 서비스입니다. 
+Amazon QuickSight와 함께 사용하여 데이터 시각화를 생성할 수 있습니다.
+
+솔루션의 이점:
+이 솔루션은 열 수준 권한을 적용하여 QuickSight 사용자가 데이터베이스의 일부 열에만 액세스할 수 있도록 하는 데 필요한 최소한의 운영 오버헤드를 제공합니다. 
+Lake Formation을 사용하면 데이터 레이크에서 보안 및 액세스 제어를 쉽게 구성할 수 있으며, 
+Amazon Athena를 통해 QuickSight에서 데이터를 분석할 때 데이터 레이크의 데이터와 운영 데이터를 결합할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A, B, C 옵션: 이 옵션들은 열 수준 액세스 제어를 적용하고, 
+QuickSight 사용자에게 필요한 최소한의 오버헤드를 제공하는 데 있어 Lake Formation과 Athena를 사용하는 것만큼 효과적이지 않습니다. 
+Lake Formation은 데이터 레이크에서 보안 및 액세스 관리를 위해 특별히 설계되었으며, 
+Amazon Athena와 QuickSight의 조합은 강력한 분석 및 시각화 기능을 제공합니다
