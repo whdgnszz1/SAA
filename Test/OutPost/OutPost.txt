@@ -1,0 +1,58 @@
+NO.100 A company wants to use Amazon Elastic Container Service (Amazon ECS) clusters and Amazon RDS DB instances to build and run a payment processing application. The company will run the application in its on-premises data center for compliance purposes.
+A solutions architect wants to use AWS Outposts as part of the solution. The solutions architect is working with the company's operational team to build the application.
+Which activities are the responsibility of the company's operational team? (Select THREE.)
+A. Providing resilient power and network connectivity to the Outposts racks
+B. Managing the virtualization hypervisor, storage systems, and the AWS services that run on Outposts
+C. Physical security and access controls of the data center environment
+D. Availability of the Outposts infrastructure including the power supplies, servers, and network-ing equipment within the Outposts racks
+E. Physical maintenance of Outposts components
+F. Providing extra capacity for Amazon ECS clusters to mitigate server failures and maintenance events
+
+Answer: A C F
+Explanation:
+These answers are correct because they reflect the customer's responsibilities for using AWS Outposts as part of the solution. 
+According to the AWS shared responsibility model, 
+the customer is responsible for providing resilient power and network connectivity to the Outposts racks, 
+ensuring physical security and access controls of the data center environment, 
+and providing extra capacity for Amazon ECS clusters to mitigate server failures and maintenance events. 
+
+AWS is responsible for managing the virtualization hypervisor, storage systems, and the AWS services 
+that run on Outposts, as well as the availability of the Outposts infrastructure 
+including the power supplies, servers, and networking equipment within the Outposts racks, and the physical maintenance of Outposts components.
+
+References:
+* https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html
+* https://www.contino.io/insights/the-sandwich-responsibility-model-aws-outposts/
+
+회사는 Amazon Elastic Container Service (Amazon ECS) 클러스터와 Amazon RDS DB 인스턴스를 사용하여 결제 처리 애플리케이션을 구축하고 실행하려고 합니다. 
+회사는 컴플라이언스 목적으로 자체 데이터 센터에서 애플리케이션을 실행할 것입니다. 
+솔루션 아키텍트는 솔루션의 일부로 AWS Outposts를 사용하려고 합니다. 
+솔루션 아키텍트는 회사의 운영 팀과 함께 애플리케이션을 구축하고 있습니다. 
+회사의 운영 팀이 담당해야 하는 활동은 무엇입니까? (세 가지를 선택하세요.)
+
+선택된 활동:
+A. Outposts 랙에 안정적인 전력과 네트워크 연결 제공
+C. 데이터 센터 환경의 물리적 보안 및 접근 제어
+F. 서버 장애 및 유지 보수 이벤트를 완화하기 위해 Amazon ECS 클러스터에 추가 용량 제공
+
+주요 키워드 설명:
+AWS Outposts: AWS 인프라와 서비스를 온프레미스 데이터 센터로 확장하여 하이브리드 클라우드 환경을 구축할 수 있는 완전 관리형 솔루션입니다.
+
+안정적인 전력과 네트워크 연결: AWS Outposts는 고객의 데이터 센터에 설치되므로, 고객은 이러한 랙에 안정적인 전력과 네트워크 연결을 제공해야 합니다.
+
+물리적 보안 및 접근 제어: Outposts 장비가 설치된 고객의 데이터 센터 내에서 물리적 보안과 접근 제어를 담당합니다.
+
+추가 용량 제공: 서버 장애나 유지 보수 이벤트가 발생했을 때 서비스 중단을 최소화하기 위해 추가 용량을 제공하는 것은 고객의 책임입니다.
+
+솔루션의 이점:
+이 활동들은 AWS Outposts를 사용하는 과정에서 고객의 책임 영역을 명확히 합니다. 
+AWS는 Outposts의 가상화 하이퍼바이저, 스토리지 시스템 및 Outposts에서 실행되는 AWS 서비스를 관리하며, 
+Outposts 인프라의 가용성과 Outposts 구성 요소의 물리적 유지 보수를 담당합니다. 
+반면, 고객은 Outposts 랙에 필요한 인프라와 환경을 제공하고 운영합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+B, D, E 옵션: AWS는 Outposts의 가상화 하이퍼바이저, 스토리지 시스템, AWS 서비스를 관리하며, Outposts 인프라의 가용성과 물리적 유지 보수를 담당합니다. 
+이러한 부분은 고객이 아닌 AWS의 책임입니다.
+
+결론적으로, A, C, F 옵션은 AWS Outposts를 사용하는 과정에서 고객이 담당해야 하는 주요 활동들을 반영합니다. 
+이러한 활동을 통해 회사는 AWS Outposts를 효과적으로 운영하고 컴플라이언스 목적을 충족할 수 있습니다.

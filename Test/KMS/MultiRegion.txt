@@ -1,0 +1,40 @@
+NO.96 A company is building an application in the AWS Cloud. 
+The application will store data in Amazon S3 buckets in two AWS Regions. 
+The company must use an AWS Key Management Service (AWS KMS) customer managed key 
+to encrypt all data that is stored in the S3 buckets. 
+The data in both S3 buckets must be encrypted and decrypted with the same KMS key. 
+The data and the key must be stored in each of the two Regions.
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Create an S3 bucket in each Region Configure the S3 buckets 
+to use server-side encryption with Amazon S3 managed encryption keys (SSE-S3) 
+Configure replication between the S3 buckets.
+
+B. Create a customer managed multi-Region KMS key. 
+Create an S3 bucket in each Region. 
+Configure replication between the S3 buckets. 
+Configure the application to use the KMS key with client-side encryption.
+
+C. Create a customer managed KMS key and an S3 bucket in each Region 
+Configure the S3 buckets to use server-side encryption with Amazon S3 managed encryption keys (SSE-S3) 
+Configure replication between the S3 buckets.
+
+D. Create a customer managed KMS key and an S3 bucket m each Region 
+Configure the S3 buckets to use server-side encryption with AWS KMS keys (SSE-KMS) 
+Configure replication between the S3 buckets.
+
+Answer: B
+Explanation:
+From https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html 
+
+For most users, the default AWS KMS key store, 
+which is protected by FIPS 140-2 validated cryptographic modules, 
+fulfills their security requirements. 
+There is no need to add an extra layer of maintenance responsibility or a dependency on an additional service. 
+
+However, you might consider creating a custom key store 
+if your organization has any of the following requirements: 
+Key material cannot be stored in a shared environment. Key material must be subject to a secondary, independent audit path. 
+The HSMs that generate and store key material must be certified at FIPS 140-2 Level 3. 
+https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html 
+https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html

@@ -1,0 +1,49 @@
+NO.92 A company runs an internal browser-based application 
+The application runs on Amazon EC2 instances behind an Application Load Balancer. 
+The instances run in an Amazon EC2 Auto Scaling group across multiple Availability Zones. 
+The Auto Scaling group scales up to 20 instances during work hours 
+but scales down to 2 instances overnight Staff are complaining that 
+the application is very application health monitoring slow when the day begins although it runs well by mid-morning.
+How should the scaling be changed to address the staff complaints and keep costs to a minimum'?
+
+A. Implement a scheduled action that sets the desired capacity to 20 shortly before the office opens 
+B. Implement a step scaling action triggered at a lower CPU threshold, and decrease the cooldown period.
+C. Implement a target tracking action triggered at a lower CPU threshold, and decrease the cooldown period.
+D. Implement a scheduled action that sets the minimum and maximum capacity to 20 shortly before the office opens
+
+Answer: C
+Explanation:
+This option will scale up capacity faster in the morning to improve performance, 
+but will still allow capacity to scale down during off hours. 
+
+It achieves this as follows: 
+* A target tracking action scales based on a CPU utilization target. 
+By triggering at a lower CPU threshold in the morning, 
+the Auto Scaling group will start scaling up sooner as traffic ramps up, 
+launching instances before utilization gets too high and impacts performance. 
+
+* Decreasing the cooldown period allows Auto Scaling to scale more aggressively, 
+launching more instances faster until the target is reached. This speeds up the ramp-up of capacity. 
+
+* However, unlike a scheduled action to set a fixed minimum/maximum capacity, 
+with target tracking the group can still scale down during off hours based on demand. This helps minimize costs.
+
+선택된 솔루션:
+C. CPU 임계값이 낮을 때 트리거되는 타겟 추적 액션을 구현하고, 쿨다운 기간을 감소시킵니다.
+
+주요 키워드 설명:
+타겟 추적 액션: 타겟 추적 스케일링 정책은 지정된 타겟 값을 유지하기 위해 Auto Scaling 그룹의 용량을 자동으로 조정합니다. 
+이 경우, CPU 사용률 타겟을 기반으로 할 수 있습니다.
+
+쿨다운 기간: 쿨다운 기간은 Auto Scaling 그룹이 스케일링 활동 후 추가 스케일링 활동을 시작하기 전에 기다리는 시간입니다. 
+쿨다운 기간을 감소시키면 Auto Scaling 그룹이 더 빠르게 반응하여 용량을 조정할 수 있습니다.
+
+솔루션의 이점:
+C 옵션을 통해, 아침에 트래픽이 증가함에 따라 Auto Scaling 그룹이 더 빨리 확장을 시작하도록 합니다. 
+이는 인스턴스가 사용률이 너무 높아지고 성능에 영향을 미치기 전에 미리 시작되도록 합니다.
+
+쿨다운 기간을 감소시키는 것은 Auto Scaling이 타겟에 도달할 때까지 더 빠르게 더 많은 인스턴스를 시작하게 하여, 용량 증가 속도를 높입니다.
+
+단, 고정된 최소/최대 용량을 설정하는 스케줄된 액션과 달리, 타겟 추적을 사용하면 그룹이 비수요 시간 동안 수요에 따라 축소될 수 있어 비용을 최소화할 수 있습니다.
+
+이 솔루션은 아침에 성능을 개선하면서도, 비활동 시간 동안 용량을 축소할 수 있게 하여 비용을 최소화하는 데 도움이 됩니다.

@@ -1,0 +1,64 @@
+NO.93 A company has an On-premises volume backup solution that has reached its end of life. 
+The company wants to use AWS as part of a new backup solution 
+and wants to maintain local access to all the data while it is backed up on AWS. 
+The company wants to ensure that the data backed up on AWS is automatically and securely transferred.
+Which solution meets these requirements?
+
+A. Use AWS Snowball to migrate data out of the on-premises solution to Amazon S3. 
+Configure on- premises systems to mount the Snowball S3 endpoint to provide local access to the data.
+
+B. Use AWS Snowball Edge to migrate data out of the on-premises solution to Amazon S3.
+Use the Snowball Edge file interface to provide on-premises systems with local access to the data.
+
+C. Use AWS Storage Gateway and configure a cached volume gateway. 
+Run the Storage Gateway software application on premises 
+and configure a percentage of data to cache locally. 
+Mount the gateway storage volumes to provide local access to the data.
+
+D. Use AWS Storage Gateway and configure a stored volume gateway. 
+Run the Storage software application on premises 
+and map the gateway storage volumes to on-premises storage. 
+Mount the gateway storage volumes to provide local access to the data.
+
+Answer: D
+Explanation:
+This option is the most efficient because it uses AWS Storage Gateway, 
+which is a service that connects an on-premises software appliance with cloud-based storage 
+to provide seamless integration with data security features 
+between your on-premises IT environment and the AWS storage infrastructure. 
+
+It also uses a stored volume gateway, which is a type of volume gateway that stores your primary data locally 
+and asynchronously backs up point-in-time snapshots of your data to Amazon S3. 
+
+It also runs the Storage Gateway software application on premises 
+and maps the gateway storage volumes to on-premises storage, which enables you to use your existing storage hardware 
+and network infrastructure. 
+
+It also mounts the gateway storage volumes to provide local access to the data, 
+which ensures that your data is available for low latency 
+access on premises while also getting backed up to AWS. 
+
+This solution meets the requirement of maintaining local access to all the data 
+while it is backed up on AWS and ensuring that the data backed up on AWS is automatically and securely transferred. 
+
+Option A is less efficient because it uses AWS Snowball, 
+which is a physical device that lets you transfer large amounts of data into and out of AWS3. 
+However, this does not provide a periodic backup solution, 
+as it requires manual handling and shipping of the device. 
+It also configures on-premises systems to mount the Snowball S3 endpoint to provide local access to the data, 
+which could introduce additional complexity and latency. 
+
+Option B is less efficient because it uses AWS Snowball Edge, 
+which is a physical device that has onboard storage and compute capabilities for select AWS capabilities. 
+However, this does not provide a periodic backup solution, 
+as it requires manual handling and shipping of the device. 
+It also uses the Snowball Edge file interface to provide on-premises systems 
+with local access to the data, which could introduce additional complexity and latency. 
+
+Option C is less efficient because it uses AWS Storage Gateway and configures a cached volume gateway, 
+which is a type of volume gateway that stores your primary data in Amazon S3 
+and retains a copy of frequently accessed data subsets locally. 
+However, this does not provide local access to all the data, 
+as only some data subsets are cached locally. 
+It also configures a percentage of data to cache locally, 
+which could incur higher costs and complexity than using a stored volume gateway.

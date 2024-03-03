@@ -1,0 +1,18 @@
+NO.99 A company's dynamic website is hosted using on-premises servers in the United States. 
+The company is launching its product in Europe, and it wants to optimize site loading times for new European users. 
+he site's backend must remain in the United States. 
+The product is being launched in a few days, and an immediate solution is needed.
+What should the solutions architect recommend?
+
+A. Launch an Amazon EC2 instance in us-east-1 and migrate the site to it.
+B. Move the website to Amazon S3. Use cross-Region replication between Regions.
+C. Use Amazon CloudFront with a custom origin pointing to the on-premises servers.
+D. Use an Amazon Route 53 geo-proximity routing policy pointing to on-premises servers.
+A
+nswer: C
+Explanation:
+https://aws.amazon.com/pt/blogs/aws/amazon-cloudfront-support-for-custom-origins/ 
+You can now create a CloudFront distribution using a custom origin. 
+Each distribution will can point to an S3 or to a custom origin. 
+This could be another storage service, or it could be something more interesting and more dynamic, 
+such as an EC2 instance or even an Elastic Load Balancer

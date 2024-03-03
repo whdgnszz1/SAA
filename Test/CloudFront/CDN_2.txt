@@ -1,0 +1,32 @@
+NO.95 A company hosts a multi-tier web application on Amazon Linux Amazon EC2 instances behind an Application Load Balancer. 
+The instances run in an Auto Scaling group across multiple Availability Zones.
+The company observes that the Auto Scaling group launches more On-Demand Instances 
+when the application's end users access high volumes of static web content. The company wants to optimize cost.
+What should a solutions architect do to redesign the application MOST cost-effectively?
+
+A. Update the Auto Scaling group to use Reserved Instances instead of On-Demand Instances.
+B. Update the Auto Scaling group to scale by launching Spot Instances instead of On-Demand Instances.
+C. Create an Amazon CloudFront distribution to host the static web contents from an Amazon S3 bucket.
+D. Create an AWS Lambda function behind an Amazon API Gateway API to host the static website contents.
+
+Answer: C
+Explanation:
+This answer is correct because it meets the requirements of optimizing cost and reducing the workload on the database. 
+Amazon CloudFront is a content delivery network (CDN) service 
+that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. 
+CloudFront delivers your content through a worldwide network of data centers called edge locations. 
+
+When a user requests content that you're serving with CloudFront, 
+the request is routed to the edge location that provides the lowest latency (time delay), 
+so that content is delivered with the best possible performance. 
+
+You can create an Amazon CloudFront distribution to host the static web contents from an Amazon S3 bucket, 
+which is an origin that you define for CloudFront. 
+
+This way, you can offload the requests for static web content from your EC2 instances to CloudFront, 
+which can improve the performance and availability of your website, 
+and reduce the cost of running your EC2 instances.
+
+References:
+* https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html
