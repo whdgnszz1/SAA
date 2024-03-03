@@ -1,0 +1,31 @@
+NO.108 A company stores critical data in Amazon DynamoDB tables in the company's AWS account.
+An IT administrator accidentally deleted a DynamoDB table.
+The deletion caused a significant loss of data and disrupted the company's operations.
+The company wants to prevent this type of disruption in the future.
+Which solution will meet this requirement with the LEAST operational overhead?
+
+A. Configure a trail in AWS CloudTrail.
+Create an Amazon EventBridge rule for delete actions.
+Create an AWS Lambda function to automatically restore deleted DynamoDB tables.
+
+B. Create a backup and restore plan for the DynamoDB tables.
+Recover the DynamoDB tables manually.
+
+C. Configure deletion protection on the DynamoDB tables.
+
+D. Enable point-in-time recovery on the DynamoDB tables.
+
+Answer: C
+
+Explanation:
+Deletion protection is a feature of DynamoDB that prevents accidental deletion of tables.
+When deletion protection is enabled, you cannot delete a table unless you explicitly disable it first.
+This adds an extra layer of security and reduces the risk of data loss and operational disruption.
+Deletion protection is easy to enable and disable using the AWS Management Console, the AWS CLI, or the DynamoDB API.
+This solution has the least operational overhead,
+as you do not need to create, manage, or invoke any additional resources or services.
+
+References:
+- Using deletion protection to protect your table
+- Preventing Accidental Table Deletion in DynamoDB
+- Amazon DynamoDB now supports table deletion protection

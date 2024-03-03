@@ -1,0 +1,58 @@
+NO.106 A data analytics company wants to migrate its batch processing system to AWS. 
+The company receives thousands of small data files periodically during the day through FTP. 
+A on- premises batch job processes the data files overnight.
+However, the batch job takes hours to finish running.
+The company wants the AWS solution to process incoming data files 
+are possible with minimal changes to the FTP clients that send the files. 
+The solution must delete the incoming data files the files have been processed successfully. 
+Processing for each file needs to take 3-8 minutes.
+Which solution will meet these requirements in the MOST operationally efficient way?
+
+A. Use an Amazon EC2 instance that runs an FTP server 
+to store incoming files as objects in Amazon S3 Glacier Flexible Retrieval. 
+Configure a job queue in AWS Batch. 
+Use Amazon EventBridge rules to invoke the job to process the objects nightly from S3 Glacier Flexible Retrieval. 
+Delete the objects after the job has processed the objects.
+
+B. Use an Amazon EC2 instance that runs an FTP server 
+to store incoming files on an Amazon Elastic Block Store (Amazon EBS) volume. 
+Configure a job queue in AWS Batch. 
+Use Amazon EventBridge rules to invoke the process the files nightly from the EBS volume. 
+Delete the files after the job has processed the files.
+
+C. Use AWS Transfer Family to create an FTP server 
+to store incoming files on an Amazon Elastic Block Store (Amazon EBS) volume. 
+Configure a job queue in AWS Batch. 
+Use an Amazon S3 event notification when each files arrives to invoke the job in AWS Batch. 
+Delete the files after the job has processed the files.
+
+D. Use AWS Transfer Family to create an FTP server 
+to store incoming files in Amazon S3 Standard.
+Create an AWS Lambda function to process the files and to delete the files after they are proessed.
+Use an S3 event notification to invoke the lambda function when the fils arrive
+
+Answer: D
+Explanation:
+This option is the most operationally efficient 
+because it uses AWS Transfer Family to create an FTP server 
+that can store incoming files in Amazon S3 Standard, 
+which is a low-cost and highly available storage service. 
+It also uses AWS Lambda to process the files and delete them after they are processed, 
+which is a serverless and scalable solution 
+that does not require any batch scheduling or infrastructure management. 
+It also uses S3 event notifications to invoke the Lambda function when the files arrive, 
+which enables near real-time processing of the incoming data files. 
+
+Option A is less efficient because it uses Amazon S3 Glacier Flexible Retrieval, 
+which is a cold storage class that has higher retrieval costs and longer retrieval times than Amazon S3 Standard. 
+It also uses EventBridge rules to invoke the job nightly, 
+which does not meet the requirement of processing incoming data files as soon as possible. 
+
+Option B is less efficient because it uses an EBS volume to store incoming files, 
+which is a block storage service that has higher costs and lower durability than Amazon S3. 
+It also uses EventBridge rules to invoke the job nightly, 
+which does not meet the requirement of processing incoming data files as soon as possible. 
+
+Option C is less efficient because it uses an EBS volume to store incoming files, 
+which is a block storage service that has higher costs and lower durability than Amazon S3. 
+It also uses AWS Batch to process the files, which requires managing compute resources and job queues.

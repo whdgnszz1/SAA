@@ -1,0 +1,28 @@
+NO.107 A company is subscribed to the AWS Business Support plan. 
+Compliance rules require the company to check on AWS infrastructure health before deployments can proceed. 
+The company needs a programmatic and automated way to check on infrastructure health at the beginning of new deployments.
+Which solution will meet these requirements?
+
+A. Use the AWS Trusted Advisor API at the start of each deployment. 
+Pause all new deployments if the API returns any issues.
+
+B. Use the AWS Health API at the start of each deployment. 
+Pause all new deployments if the API returns any issues.
+
+C. Query the AWS Support API at the start of each deployment. 
+Pause all new deployments if the API returns any open issues.
+
+D. Send an API call to each workload ahead of deployment. 
+Pause the deployments if the API call fails.
+
+Answer: B
+Explanation:
+The AWS Health API provides programmatic access to the AWS Health information 
+that is presented in the AWS Personal Health Dashboard. 
+You can use the API operations to get information about AWS Health events 
+that affect your AWS services and resources.
+You can also use the API to enable or disable health-based insights for your organization. 
+You can use the AWS Health API at the start of each deployment 
+to check on AWS infrastructure health and pause all new deployments if the API returns any issues.
+
+References: https://docs.aws.amazon.com/health/latest/APIReference/Welcome.html

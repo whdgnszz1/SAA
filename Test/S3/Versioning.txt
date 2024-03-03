@@ -1,0 +1,39 @@
+NO.104 A solutions architect is implementing a document review application using an Amazon S3 bucket for storage.
+The solution must prevent accidental deletion of the documents 
+and ensure that all versions of the documents are available. 
+Users must be able to download, modify, and upload documents.
+Which combination of actions should be taken to meet these requirements? (Choose two.) 
+
+A. Enable a read-only bucket ACL.
+B. Enable versioning on the bucket.
+C. Attach an IAM policy to the bucket.
+D. Enable MFA Delete on the bucket. 
+E. Encrypt the bucket using AWS KMS.
+
+Answer: B D
+Explanation:
+Versioning is a feature of Amazon S3 that allows users to keep multiple versions of the same object in a bucket. 
+It can help prevent accidental deletion of the documents 
+and ensure that all versions of the documents are available. 
+
+MFA Delete is a feature of Amazon S3 
+that adds an extra layer of security by requiring two forms of authentication 
+to delete a version or change the versioning state of a bucket. 
+It can help prevent unauthorized or accidental deletion of the documents. 
+By enabling both versioning and MFA Delete on the bucket, the solution can meet the requirements.
+
+A: Enable a read-only bucket ACL. This solution will not meet the requirement 
+of allowing users to download, modify, and upload documents, as a read-only bucket ACL 
+will prevent write access to the bucket.
+
+C: Attach an IAM policy to the bucket. 
+This solution will not meet the requirement of preventing accidental deletion of the documents 
+and ensuring that all versions of the documents are available, 
+as an IAM policy is used to grant or deny permissions to users or roles, 
+not to enable versioning or MFA Delete.
+
+E: Encrypt the bucket using AWS KMS. 
+This solution will not meet the requirement of preventing accidental deletion of the documents 
+and ensuring that all versions of the documents are available, 
+as encrypting the bucket using AWS KMS is a method of protecting data at rest, 
+not enabling versioning or MFA Delete.
