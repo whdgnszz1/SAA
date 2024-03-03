@@ -1,0 +1,39 @@
+NO.64 A company has NFS servers in an on-premises data center 
+that need to periodically back up small amounts of data to Amazon S3. 
+Which solution meets these requirements and is MOST cost- effective?
+
+A. Set up AWS Glue to copy the data from the on-premises servers to Amazon S3.
+B. Set up an AWS DataSync agent on the on-premises servers, and sync the data to Amazon S3. 
+C. Set up an SFTP sync using AWS Transfer for SFTP to sync data from on premises to Amazon S3.
+D. Set up an AWS Direct Connect connection between the on-premises data center and a VPC, and copy the data to Amazon S3.
+
+Answer: B
+Explanation:
+AWS DataSync is a service that makes it easy to move large amounts of data online 
+between on- premises storage and AWS storage services. 
+AWS DataSync can transfer data at speeds up to 10 times faster than open-source tools 
+by using a purpose-built network protocol and parallelizing data transfers. 
+AWS DataSync also handles encryption, data integrity verification, and bandwidth optimization. 
+To use AWS DataSync, users need to deploy a DataSync agent on their on-premises servers, 
+which connects to the NFS servers and syncs the data to Amazon S3. 
+Users can schedule periodic or one-time sync tasks and monitor the progress and status of the transfers.
+
+The other options are not correct because they are either not cost-effective or not suitable for the use case.
+Setting up AWS Glue to copy the data from the on-premises servers to Amazon S3 
+is not cost- effective because AWS Glue is a serverless data integration service 
+that is mainly used for extract, transform, and load (ETL) operations, not for simple data backup. 
+
+Setting up an SFTP sync using AWS Transfer for SFTP to sync data from on premises to Amazon S3 
+is not cost-effective because AWS Transfer for SFTP is a fully managed service 
+that provides secure file transfer using the SFTP protocol, 
+which is more suitable for exchanging data with third parties than for backing up data. 
+
+Setting up an AWS Direct Connect connection between the on-premises data center and a VPC, 
+and copying the data to Amazon S3 is not cost-effective 
+because AWS Direct Connect is a dedicated network connection 
+between AWS and the on-premises location, which has high upfront costs and requires additional configuration.
+
+References:
+* AWS DataSync
+* How AWS DataSync works
+* AWS DataSync FAQs

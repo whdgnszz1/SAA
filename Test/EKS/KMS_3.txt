@@ -1,0 +1,21 @@
+NO.68 A company uses Amazon Elastic Kubernetes Service (Amazon EKS) to run a container application. 
+The EKS cluster stores sensitive information in the Kubernetes secrets object. 
+The company wants to ensure that the information is encrypted 
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Use the container application to encrypt the information by using AWS Key Management Service (AWS KMS).
+B. Enable secrets encryption in the EKS cluster by using AWS Key Management Service (AWS KMS)
+C. Implement an AWS Lambda tuncuon to encrypt the information by using AWS Key Management Service (AWS KMS).
+D. use AWS Systems Manager Parameter Store to encrypt the information by using AWS Key Management Service (AWS KMS).
+
+Answer: B
+Explanation:
+it allows the company to encrypt the Kubernetes secrets object 
+in the EKS cluster with the least operational overhead. 
+By enabling secrets encryption in the EKS cluster, the company can use AWS Key Management Service (AWS KMS) 
+to generate and manage encryption keys for encrypting and decrypting secrets at rest.
+This is a simple and secure way to protect sensitive information in EKS clusters. 
+
+References: 
+* Encrypting Kubernetes secrets with AWS KMS
+* Kubernetes Secrets

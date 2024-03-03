@@ -1,0 +1,35 @@
+NO.65 A company has deployed a multiplayer game for mobile devices. 
+The game requires live location tracking of players based on latitude and longitude. 
+The data store for the game must support rapid updates and retrieval of locations.
+The game uses an Amazon RDS for PostgreSQL DB instance with read replicas to store the location data.
+During peak usage periods, the database is unable to maintain the performance 
+that is needed for reading and writing updates. 
+The game's user base is increasing rapidly.
+What should a solutions architect do to improve the performance of the data tier?
+
+A. Take a snapshot of the existing DB instance. Restore the snapshot with Multi-AZ enabled.
+B. Migrate from Amazon RDS to Amazon OpenSearch Service with OpenSearch Dashboards.
+C. Deploy Amazon DynamoDB Accelerator (DAX) in front of the existing DB instance. Modify the game to use DAX.
+D. Deploy an Amazon ElastiCache for Redis cluster in front of the existing DB instance. Modify the game to use Redis.
+
+D. 기존 DB 인스턴스 앞에 Amazon ElastiCache for Redis 클러스터를 배포하고 게임을 수정하여 Redis를 사용하도록 합니다.
+
+주요 키워드 설명:
+Amazon ElastiCache for Redis: Redis는 메모리 내 데이터 저장소로, 고속 데이터 읽기 및 쓰기를 지원합니다. 
+Redis는 공간 데이터 유형과 명령을 지원하여 플레이어의 위치 데이터를 빠르고 확장 가능한 방식으로 저장하고 검색할 수 있습니다.
+
+솔루션의 이점:
+ElastiCache for Redis를 사용하면, 게임이 플레이어의 위치 데이터를 빠르게 저장하고 검색할 수 있습니다. 
+Redis는 RDS for PostgreSQL DB 인스턴스의 부하를 줄이는 동시에 메모리 내 캐싱을 통해 데이터 접근 시간을 단축시킵니다. 
+또한, Redis는 복제, 샤딩, 자동 확장을 지원하여 게임의 사용자 기반 증가를 처리할 수 있습니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A 옵션: 기존 DB 인스턴스의 스냅샷을 촬영하고 Multi-AZ를 활성화하여 스냅샷을 복원하는 것은 고가용성을 제공하지만 데이터 계층의 성능 개선과는 관련이 없습니다.
+
+B 옵션: Amazon RDS에서 Amazon OpenSearch Service로 마이그레이션하는 것은 실시간 위치 추적에 최적화되지 않은 전체 텍스트 검색 및 분석용으로 설계되었습니다.
+
+C 옵션: Amazon DynamoDB Accelerator (DAX)를 배포하는 것은 Amazon DynamoDB와만 호환되며 RDS for PostgreSQL과는 사용할 수 없습니다. 또한 DAX는 공간 데이터 유형과 명령을 지원하지 않습니다.
+
+결론적으로, D 옵션은 데이터 계층의 성능을 개선하면서 실시간 위치 추적에 필요한 빠른 데이터 업데이트 및 검색을 지원하는 가장 효과적인 솔루션을 제공합니다.
+
+

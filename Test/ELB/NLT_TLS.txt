@@ -1,0 +1,30 @@
+NO.63 A company has a three-tier application on AWS that ingests sensor data 
+from its users' devices The traffic flows through a Network Load Balancer (NLB) 
+then to Amazon EC2 instances for the web tier and finally to EC2 instances for the application tier 
+The application tier makes calls to a database 
+What should a solutions architect do to improve the security of the data in transit?
+
+A. Configure a TLS listener Deploy the server certrficate on the NLB
+B. Configure AWS Shield Advanced Enable AWS WAF on the NLB
+C. Change the load balancer to an Application Load Balancer (ALB) Enable AWS WAF on the ALB
+D. Encrypt the Amazon Elastic Block Store (Amazon EBS) volume on the EC2 instances by using AWS Key Management Service (AWS KMS)
+
+Answer: A
+Explanation:
+The best option to improve the security of the data in transit is 
+to configure a TLS listener and deploy the server certificate on the NLB. 
+This will ensure that the data is encrypted and secure as it travels through the network. 
+Additionally, you could also configure AWS Shield Advanced and enable AWS WAF on the NLB 
+to further protect the network from malicious attacks. 
+
+Alternatively, you could also change the load balancer to an Application Load Balancer (ALB) 
+and enable AWS WAF on the ALB. 
+
+Finally, you could also encrypt the Amazon Elastic Block Store (Amazon EBS) volume 
+on the EC2 instances by using AWS Key Management Service (AWS KMS).
+
+You must specify an SSL certificate for a TLS listener. 
+The load balancer uses the certificate to terminate the connection 
+and decrypt requests from clients before routing them to targets. 
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-listener.html

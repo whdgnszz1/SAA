@@ -1,0 +1,43 @@
+NO.59 A hospital recently deployed a RESTful API with Amazon API Gateway and AWS Lambda 
+The hospital uses API Gateway and Lambda to upload reports that are in PDF format and JPEG format 
+The hospital needs to modify the Lambda code to identify protected health information (PHI) in the reports 
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Use existing Python libraries to extract the text from the reports and 
+to identify the PHI from the extracted text.
+B. Use Amazon Textract to extract the text from the reports Use Amazon SageMaker 
+to identify the PHI from the extracted text.
+C. Use Amazon Textract to extract the text from the reports Use Amazon Comprehend Medical 
+to identify the PHI from the extracted text
+D. Use Amazon Rekognition to extract the text from the reports Use Amazon Comprehend Medical 
+to identify the PHI from the extracted text
+
+정답: C. Amazon Textract를 사용하여 보고서에서 텍스트를 추출합니다. 추출된 텍스트에서 PHI를 식별하기 위해 Amazon Comprehend Medical을 사용합니다.
+
+주요 키워드 설명:
+Amazon Textract: Amazon Textract는 기계 학습(ML)을 사용하여 문서와 양식에서 텍스트와 데이터를 자동으로 추출하는 서비스입니다. 
+PDF, JPEG와 같은 형식의 파일에서 텍스트를 정확하게 추출할 수 있습니다.
+
+Amazon Comprehend Medical: Amazon Comprehend Medical은 자연어 처리(NLP)와 기계 학습을 사용하여 의료 텍스트에서 유용한 정보를 식별하는 서비스입니다. 
+PHI와 같은 보호된 건강 정보를 식별하는 데 특화되어 있습니다.
+
+솔루션의 이점:
+C 옵션을 통해, 병원은 보고서에서 텍스트를 효과적으로 추출하고 보호된 건강 정보(PHI)를 식별할 수 있습니다. 
+Amazon Textract와 Amazon Comprehend Medical의 조합은 자동화된 방식으로 이 작업을 수행하여 운영상의 부담을 최소화합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+A 옵션: 기존 Python 라이브러리를 사용하는 것은 개발과 유지 관리에 더 많은 노력이 필요하며, 
+PHI 식별의 정확도와 효율성이 Amazon Comprehend Medical만큼 높지 않을 수 있습니다.
+
+B 옵션: Amazon Textract를 사용하여 텍스트를 추출하는 것은 적합하지만, 
+Amazon SageMaker를 사용하는 것은 PHI를 식별하기 위한 모델을 개발하고 훈련하는 데 추가적인 운영 오버헤드가 발생합니다.
+
+D 옵션: Amazon Rekognition은 이미지와 비디오에서 객체, 사람, 텍스트 등을 식별하는 데 사용되는 서비스이지만, 
+문서에서의 텍스트 추출에는 Amazon Textract가 더 적합합니다.
+
+결론적으로, C 옵션은 보고서에서 PHI를 식별하기 위해 필요한 기능을 제공하면서 최소한의 운영 오버헤드로 요구 사항을 충족하는 가장 효과적인 솔루션을 제공합니다.
+
+
+
+
+

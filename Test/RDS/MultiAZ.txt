@@ -1,0 +1,40 @@
+NO.62 A company hosts an online shopping application 
+that stores all orders in an Amazon RDS for PostgreSQL Singfe-AZ DB instance. 
+Management wants to eliminate single points of failure 
+and has asked a solutions architect to recommend an approach to minimize database downtime 
+without requiring any changes to the application code.
+
+Which solution meets these requirements?
+A. Convert the existing database instance to a Multi-AZ deployment 
+by modifying the database instance and specifying the Multi-AZ option.
+
+B. Create a new RDS Multi-AZ deployment. Take a snapshot of the current RDS instance 
+and restore the new Multi-AZ deployment with the snapshot.
+
+C. Create a read-only replica of the PostgreSQL database in another Availability Zone. 
+Use Amazon Route 53 weighted record sets to distribute requests across the databases.
+
+D. Place the RDS for PostgreSQL database in an Amazon EC2 Auto Scaling group 
+with a minimum group size of two. 
+Use Amazon Route 53 weighted record sets to distribute requests across instances. 
+
+정답: A
+A. 기존 데이터베이스 인스턴스를 Multi-AZ 배포로 전환하기 위해 데이터베이스 인스턴스를 수정하고 Multi-AZ 옵션을 지정합니다.
+
+주요 키워드 설명:
+Multi-AZ 배포: Amazon RDS의 Multi-AZ 배포는 고가용성과 데이터 복구를 위해 설계된 기능입니다. 
+기본 DB 인스턴스와 동기식으로 복제된 하나 이상의 보조 DB 인스턴스를 다른 가용 영역(AZ)에 배치합니다.
+
+솔루션의 이점:
+A 옵션을 통해, 단일 실패 지점 없이 데이터베이스의 가용성과 내구성을 향상시킬 수 있습니다. 
+Multi-AZ 배포는 기본 인스턴스에 장애가 발생할 경우 자동으로 보조 인스턴스로의 장애 조치(failover)를 지원하여 데이터베이스 서비스의 연속성을 보장합니다. 
+이 접근 방식은 애플리케이션 코드 변경 없이 데이터베이스 다운타임을 최소화합니다.
+
+왜 다른 옵션들은 적합하지 않은가?
+B 옵션: 새로운 RDS Multi-AZ 배포를 생성하고 현재 RDS 인스턴스의 스냅샷을 복원하는 방법은 가능하지만, 기존 데이터베이스 인스턴스를 직접 Multi-AZ로 전환하는 것보다 더 복잡하고 시간이 많이 소요됩니다.
+
+C 옵션: 다른 가용 영역에 PostgreSQL 데이터베이스의 읽기 전용 복제본을 생성하고 Amazon Route 53 가중치 레코드 세트를 사용하여 데이터베이스 간에 요청을 분산하는 방법은 고가용성을 위한 해결책이 아닙니다.
+
+D 옵션: RDS for PostgreSQL 데이터베이스를 Amazon EC2 Auto Scaling 그룹에 배치하는 방법은 RDS 인스턴스에 적용할 수 없는 접근 방식입니다.
+
+결론적으로, A 옵션은 관리부의 요구 사항을 충족하면서 단일 실패 지점 없이 데이터베이스 다운타임을 최소화하는 가장 효과적인 솔루션을 제공합니다. 기존 Single-AZ DB 인스턴스를 Multi-AZ 배포로 전환함으로써, 데이터베이스의 가용성과 내구성을 자동으로 향상시킬 수 있습니다.
